@@ -21,6 +21,7 @@
 		A1721E3219E1B46C00254A89 /* Twitter_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E3119E1B46C00254A89 /* Twitter_ClientTests.m */; };
 		A1721E3F19E1B49C00254A89 /* TwitListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E3D19E1B49C00254A89 /* TwitListController.m */; };
 		A1721E4019E1B49C00254A89 /* TwitListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1721E3E19E1B49C00254A89 /* TwitListController.xib */; };
+		A1721E4319E1B62300254A89 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E4219E1B62300254A89 /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		A1721E3C19E1B49C00254A89 /* TwitListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitListController.h; sourceTree = "<group>"; };
 		A1721E3D19E1B49C00254A89 /* TwitListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitListController.m; sourceTree = "<group>"; };
 		A1721E3E19E1B49C00254A89 /* TwitListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitListController.xib; sourceTree = "<group>"; };
+		A1721E4119E1B62300254A89 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		A1721E4219E1B62300254A89 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 		A1721E1219E1B46C00254A89 /* Twitter Client */ = {
 			isa = PBXGroup;
 			children = (
+				A1721E4119E1B62300254A89 /* Util.h */,
+				A1721E4219E1B62300254A89 /* Util.m */,
 				A1721E3B19E1B47C00254A89 /* Controllers */,
 				A1721E1B19E1B46C00254A89 /* AppDelegate.h */,
 				A1721E1C19E1B46C00254A89 /* AppDelegate.m */,
@@ -259,6 +264,7 @@
 				A1721E3F19E1B49C00254A89 /* TwitListController.m in Sources */,
 				A1721E1D19E1B46C00254A89 /* AppDelegate.m in Sources */,
 				A1721E1919E1B46C00254A89 /* main.m in Sources */,
+				A1721E4319E1B62300254A89 /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

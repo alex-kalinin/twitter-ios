@@ -26,7 +26,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.title = @"Home";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Sign Out"
+                                                                            style:UIBarButtonItemStylePlain target:self
+                                                                           action:@selector(sign_out_click)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"New"
+                                                                            style:UIBarButtonItemStylePlain target:self
+                                                                           action:@selector(new_twit)];
+}
+
+-(void) new_twit
+{
+    
+}
+
+-(void) sign_out_click
+{
+    
 }
 
 - (void)didReceiveMemoryWarning

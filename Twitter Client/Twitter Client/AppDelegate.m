@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TwitListController.h"
+#import "Util.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(TWITTER_COLOR_HEX)];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     TwitListController* controller = [[TwitListController alloc]initWithNibName:@"TwitListController" bundle:nil];
     UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:controller];
