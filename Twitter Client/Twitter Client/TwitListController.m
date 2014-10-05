@@ -7,12 +7,19 @@
 //
 
 #import "TwitListController.h"
+#import "Twitter.h"
+#import "Twit.h"
+#import "TwitCell.h"
 
 @interface TwitListController ()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation TwitListController
+{
+    Twitter*    _twitter;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +41,25 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"New"
                                                                             style:UIBarButtonItemStylePlain target:self
                                                                            action:@selector(new_twit)];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"TwitCell" bundle:nil]
+         forCellReuseIdentifier:@"TwitCell"];
+    
+    _twitter = [Twitter new];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TwitCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
+    [cell display_twit_with_author:nil withName:nil withText:nil withDateText:nil];
+    return cell;
 }
 
 -(void) new_twit

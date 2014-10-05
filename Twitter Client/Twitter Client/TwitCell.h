@@ -1,5 +1,5 @@
 //
-//  TwitListController.h
+//  TwitCell.h
 //  Twitter Client
 //
 //  Created by Alex Kalinin on 10/5/14.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TwitView.h"
 
-@interface TwitListController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface TwitCell : UITableViewCell<TwitView>
 
 @end
