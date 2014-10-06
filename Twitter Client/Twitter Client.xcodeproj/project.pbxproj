@@ -28,6 +28,16 @@
 		A1721E5019E1D9FE00254A89 /* Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E4F19E1D9FE00254A89 /* Twitter.m */; };
 		A1721E5319E1DA1200254A89 /* TwitView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E5219E1DA1200254A89 /* TwitView.m */; };
 		A1721E5619E21BF400254A89 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E5519E21BF400254A89 /* TwitterClient.m */; };
+		A1A16A6B19E24A34000E146C /* reply.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6119E24A34000E146C /* reply.png */; };
+		A1A16A6C19E24A34000E146C /* reply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6219E24A34000E146C /* reply@2x.png */; };
+		A1A16A6D19E24A34000E146C /* retweet-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6319E24A34000E146C /* retweet-selected.png */; };
+		A1A16A6E19E24A34000E146C /* retweet-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6419E24A34000E146C /* retweet-selected@2x.png */; };
+		A1A16A6F19E24A34000E146C /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6519E24A34000E146C /* retweet.png */; };
+		A1A16A7019E24A34000E146C /* retweet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6619E24A34000E146C /* retweet@2x.png */; };
+		A1A16A7119E24A34000E146C /* star-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6719E24A34000E146C /* star-selected.png */; };
+		A1A16A7219E24A34000E146C /* star-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6819E24A34000E146C /* star-selected@2x.png */; };
+		A1A16A7319E24A34000E146C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6919E24A34000E146C /* star.png */; };
+		A1A16A7419E24A34000E146C /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6A19E24A34000E146C /* star@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +83,16 @@
 		A1721E5219E1DA1200254A89 /* TwitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitView.m; sourceTree = "<group>"; };
 		A1721E5419E21BF400254A89 /* TwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterClient.h; sourceTree = "<group>"; };
 		A1721E5519E21BF400254A89 /* TwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterClient.m; sourceTree = "<group>"; };
+		A1A16A6119E24A34000E146C /* reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reply.png; sourceTree = "<group>"; };
+		A1A16A6219E24A34000E146C /* reply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply@2x.png"; sourceTree = "<group>"; };
+		A1A16A6319E24A34000E146C /* retweet-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-selected.png"; sourceTree = "<group>"; };
+		A1A16A6419E24A34000E146C /* retweet-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-selected@2x.png"; sourceTree = "<group>"; };
+		A1A16A6519E24A34000E146C /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet.png; sourceTree = "<group>"; };
+		A1A16A6619E24A34000E146C /* retweet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet@2x.png"; sourceTree = "<group>"; };
+		A1A16A6719E24A34000E146C /* star-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-selected.png"; sourceTree = "<group>"; };
+		A1A16A6819E24A34000E146C /* star-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-selected@2x.png"; sourceTree = "<group>"; };
+		A1A16A6919E24A34000E146C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		A1A16A6A19E24A34000E146C /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +152,7 @@
 		A1721E1219E1B46C00254A89 /* Twitter Client */ = {
 			isa = PBXGroup;
 			children = (
+				A1A16A4C19E246D1000E146C /* Images */,
 				A1721E4A19E1D9CC00254A89 /* Model */,
 				A1721E4419E1D9A400254A89 /* Views */,
 				A1721E3B19E1B47C00254A89 /* Controllers */,
@@ -207,6 +228,23 @@
 				A1721E5519E21BF400254A89 /* TwitterClient.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A1A16A4C19E246D1000E146C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A1A16A6119E24A34000E146C /* reply.png */,
+				A1A16A6219E24A34000E146C /* reply@2x.png */,
+				A1A16A6319E24A34000E146C /* retweet-selected.png */,
+				A1A16A6419E24A34000E146C /* retweet-selected@2x.png */,
+				A1A16A6519E24A34000E146C /* retweet.png */,
+				A1A16A6619E24A34000E146C /* retweet@2x.png */,
+				A1A16A6719E24A34000E146C /* star-selected.png */,
+				A1A16A6819E24A34000E146C /* star-selected@2x.png */,
+				A1A16A6919E24A34000E146C /* star.png */,
+				A1A16A6A19E24A34000E146C /* star@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +323,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1721E1719E1B46C00254A89 /* InfoPlist.strings in Resources */,
+				A1A16A6F19E24A34000E146C /* retweet.png in Resources */,
+				A1A16A7419E24A34000E146C /* star@2x.png in Resources */,
+				A1A16A6D19E24A34000E146C /* retweet-selected.png in Resources */,
+				A1A16A6E19E24A34000E146C /* retweet-selected@2x.png in Resources */,
+				A1A16A6B19E24A34000E146C /* reply.png in Resources */,
 				A1721E4919E1D9BD00254A89 /* TwitCell.xib in Resources */,
+				A1A16A7119E24A34000E146C /* star-selected.png in Resources */,
 				A1721E1F19E1B46C00254A89 /* Images.xcassets in Resources */,
 				A1721E4019E1B49C00254A89 /* TwitListController.xib in Resources */,
+				A1A16A7319E24A34000E146C /* star.png in Resources */,
+				A1A16A7219E24A34000E146C /* star-selected@2x.png in Resources */,
+				A1A16A6C19E24A34000E146C /* reply@2x.png in Resources */,
+				A1A16A7019E24A34000E146C /* retweet@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

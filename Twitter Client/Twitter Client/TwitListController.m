@@ -49,6 +49,8 @@
     _twitter = [Twitter new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    _size_cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
