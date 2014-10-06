@@ -33,10 +33,10 @@
 
 -(void)display_twit_with_author:(NSString *)author_handle withName:(NSString *)name withText:(NSString *)text withDateText:(NSString *)date_text
 {
-    self.name.text = @"TesterTest Tets";
-    self.handle.text = @"TheTesterTestHandle";
-    self.dateStr.text = @"12/20/14";
-    self.text.text = @"This is a rather long that I need to test how the label will fold or not due to dynamic layouts.";
+//    self.name.text = @"TesterTest Tets";
+//    self.handle.text = @"TheTesterTestHandle";
+//    self.dateStr.text = @"12/20/14";
+//    self.text.text = @"This is a rather long that I need to test how the label will fold or not due to dynamic layouts.";
 }
 
 @end

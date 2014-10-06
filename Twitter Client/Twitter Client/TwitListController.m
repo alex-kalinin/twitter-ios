@@ -19,6 +19,7 @@
 @implementation TwitListController
 {
     Twitter*    _twitter;
+    TwitCell*   _size_cell;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -60,6 +61,14 @@
     TwitCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
     [cell display_twit_with_author:nil withName:nil withText:nil withDateText:nil];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [_size_cell display_twit_with_author:nil withName:nil withText:nil withDateText:nil];
+    CGSize size = [_size_cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    NSLog(@"Height: %f", size.height);
+    return size.height + 1;
 }
 
 -(void) new_twit

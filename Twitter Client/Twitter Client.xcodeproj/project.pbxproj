@@ -27,6 +27,7 @@
 		A1721E4D19E1D9F300254A89 /* Twit.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E4C19E1D9F300254A89 /* Twit.m */; };
 		A1721E5019E1D9FE00254A89 /* Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E4F19E1D9FE00254A89 /* Twitter.m */; };
 		A1721E5319E1DA1200254A89 /* TwitView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E5219E1DA1200254A89 /* TwitView.m */; };
+		A1721E5619E21BF400254A89 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1721E5519E21BF400254A89 /* TwitterClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		A1721E4F19E1D9FE00254A89 /* Twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Twitter.m; sourceTree = "<group>"; };
 		A1721E5119E1DA1200254A89 /* TwitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitView.h; sourceTree = "<group>"; };
 		A1721E5219E1DA1200254A89 /* TwitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitView.m; sourceTree = "<group>"; };
+		A1721E5419E21BF400254A89 /* TwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterClient.h; sourceTree = "<group>"; };
+		A1721E5519E21BF400254A89 /* TwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 				A1721E4F19E1D9FE00254A89 /* Twitter.m */,
 				A1721E5119E1DA1200254A89 /* TwitView.h */,
 				A1721E5219E1DA1200254A89 /* TwitView.m */,
+				A1721E5419E21BF400254A89 /* TwitterClient.h */,
+				A1721E5519E21BF400254A89 /* TwitterClient.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1721E5319E1DA1200254A89 /* TwitView.m in Sources */,
+				A1721E5619E21BF400254A89 /* TwitterClient.m in Sources */,
 				A1721E3F19E1B49C00254A89 /* TwitListController.m in Sources */,
 				A1721E1D19E1B46C00254A89 /* AppDelegate.m in Sources */,
 				A1721E1919E1B46C00254A89 /* main.m in Sources */,
@@ -505,6 +511,7 @@
 				A1721E3719E1B46C00254A89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1721E3819E1B46C00254A89 /* Build configuration list for PBXNativeTarget "Twitter ClientTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +520,7 @@
 				A1721E3A19E1B46C00254A89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

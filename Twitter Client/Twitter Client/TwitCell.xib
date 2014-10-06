@@ -6,44 +6,44 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="98" id="KGk-i7-Jjw" customClass="TwitCell">
-            <rect key="frame" x="0.0" y="0.0" width="325" height="98"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="KGk-i7-Jjw" customClass="TwitCell">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="325" height="97"/>
+                <rect key="frame" x="0.0" y="0.0" width="325" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hot-3T-3Cm">
-                        <rect key="frame" x="9" y="11" width="50" height="49"/>
+                        <rect key="frame" x="4" y="4" width="52" height="52"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="49" id="AjV-o2-dJJ"/>
-                            <constraint firstAttribute="width" constant="50" id="msO-YT-xfy"/>
+                            <constraint firstAttribute="width" constant="52" id="KmG-bx-Hkx"/>
+                            <constraint firstAttribute="height" constant="52" id="R42-li-zQl"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkk-OR-lb5">
-                        <rect key="frame" x="67" y="11" width="37" height="17"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkk-OR-lb5">
+                        <rect key="frame" x="63" y="4" width="71" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twit text goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="238" translatesAutoresizingMaskIntoConstraints="NO" id="8L8-cb-B1E">
-                        <rect key="frame" x="67" y="31" width="238" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Twit text goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="258" translatesAutoresizingMaskIntoConstraints="NO" id="8L8-cb-B1E">
+                        <rect key="frame" x="63" y="25" width="258" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="725" text="12/22/14" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fn8-kr-uEn">
-                        <rect key="frame" x="267" y="11" width="54" height="16"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="12/22/14" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fn8-kr-uEn">
+                        <rect key="frame" x="267" y="4" width="54" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3Z-91-2Xa">
-                        <rect key="frame" x="114" y="11" width="36" height="17"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="600" text="Screen name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3Z-91-2Xa">
+                        <rect key="frame" x="142" y="4" width="85" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,14 +51,19 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Fn8-kr-uEn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Fhc-EJ-qYa"/>
-                    <constraint firstItem="Jkk-OR-lb5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="OsF-kM-WYZ"/>
-                    <constraint firstItem="Hot-3T-3Cm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="SWc-2R-cHK"/>
-                    <constraint firstItem="Jkk-OR-lb5" firstAttribute="leading" secondItem="Hot-3T-3Cm" secondAttribute="trailing" constant="8" id="T3h-PU-dVO"/>
-                    <constraint firstItem="s3Z-91-2Xa" firstAttribute="leading" secondItem="Jkk-OR-lb5" secondAttribute="trailing" constant="10" id="Td8-D5-rrT"/>
-                    <constraint firstItem="s3Z-91-2Xa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Tqa-3u-t4D"/>
-                    <constraint firstAttribute="trailing" secondItem="Fn8-kr-uEn" secondAttribute="trailing" constant="4" id="ius-EL-sV1"/>
-                    <constraint firstItem="Hot-3T-3Cm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="kuD-Xg-KK5"/>
+                    <constraint firstItem="s3Z-91-2Xa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="88d-V7-c5g"/>
+                    <constraint firstItem="Jkk-OR-lb5" firstAttribute="leading" secondItem="Hot-3T-3Cm" secondAttribute="trailing" constant="7" id="8nz-4a-rBG"/>
+                    <constraint firstItem="Fn8-kr-uEn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="IRx-zd-UxK"/>
+                    <constraint firstItem="8L8-cb-B1E" firstAttribute="leading" secondItem="Hot-3T-3Cm" secondAttribute="trailing" constant="7" id="K2E-fs-ujb"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Hot-3T-3Cm" secondAttribute="bottom" priority="999" constant="7" id="XEj-qi-NTF"/>
+                    <constraint firstItem="Hot-3T-3Cm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="XTN-Ip-NWI"/>
+                    <constraint firstItem="Fn8-kr-uEn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="s3Z-91-2Xa" secondAttribute="trailing" constant="5" id="eJQ-Zu-ZSC"/>
+                    <constraint firstItem="Hot-3T-3Cm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="guo-yJ-fAQ"/>
+                    <constraint firstItem="s3Z-91-2Xa" firstAttribute="leading" secondItem="Jkk-OR-lb5" secondAttribute="trailing" constant="8" id="jJh-by-KMz"/>
+                    <constraint firstItem="Jkk-OR-lb5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="mT4-rX-2ua"/>
+                    <constraint firstAttribute="trailing" secondItem="Fn8-kr-uEn" secondAttribute="trailing" constant="4" id="tUp-4v-Agf"/>
+                    <constraint firstItem="8L8-cb-B1E" firstAttribute="top" secondItem="s3Z-91-2Xa" secondAttribute="bottom" constant="4" id="v7Y-Wy-Hye"/>
+                    <constraint firstAttribute="trailing" secondItem="8L8-cb-B1E" secondAttribute="trailing" constant="4" id="yrK-6K-QD3"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
