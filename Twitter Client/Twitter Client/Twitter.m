@@ -8,6 +8,7 @@
 
 #import "Twitter.h"
 #import "Twit.h"
+#import "User.h"
 
 NSString* API_KEY = @"7RmP45H9CIzTBFAzNywETt1dw";
 NSString* API_SECRET = @"ULTxpra7YVpsSzEd3iZrKhSxmE2tKwXOEITwAiQZiuznaLq6u2";
@@ -18,6 +19,7 @@ static Twitter* _twitterClient;
 @implementation Twitter
 {
     NSArray*    _twits;
+    User*       _user;
 }
 
 +(Twitter *)instance
@@ -50,7 +52,7 @@ static Twitter* _twitterClient;
      }];
 }
 
--(void)open_url:(NSURL *)url
+-(void)open_url:(NSURL *)url withSuccess:(void(^)())on_done
 {
     [self fetchAccessTokenWithPath:@"oauth/access_token"
                               method:@"POST"
@@ -59,8 +61,10 @@ static Twitter* _twitterClient;
                                  
                                  NSLog(@"Got access token");
                                  [self.requestSerializer saveAccessToken:accessToken];
-                                 
-                                 [self reload:^{}];
+                                 on_done();
+//                                 [self reload:^{
+//                                     on_done();
+//                                 }];
                                  
                              } failure:^(NSError *error) {
                                  NSLog(@"Fail to get access token");
@@ -118,6 +122,11 @@ static Twitter* _twitterClient;
             on_done();
         }];
     }
+}
+
+-(void) sign_out
+{
+    [self.requestSerializer removeAccessToken];
 }
 
 @end

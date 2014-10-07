@@ -10,6 +10,7 @@
 #import "Twitter.h"
 #import "Twit.h"
 #import "TwitCell.h"
+#import "LoginViewController.h"
 
 @interface TwitListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -88,7 +89,9 @@
 
 -(void) sign_out_click
 {
-    
+    [[Twitter instance] sign_out];
+    UIViewController* controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

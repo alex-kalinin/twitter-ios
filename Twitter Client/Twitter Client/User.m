@@ -17,8 +17,6 @@
     NSDictionary*   _dict;
 }
 
-
-
 -(id)initWithDict:(NSDictionary *)dict
 {
     self = [super init];

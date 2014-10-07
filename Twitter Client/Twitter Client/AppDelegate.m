@@ -24,6 +24,15 @@
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(TWITTER_COLOR_HEX)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
+    [self init_main_window];
+    
+    [self.window makeKeyAndVisible];
+
+    return YES;
+}
+
+-(void) init_main_window
+{
     UIViewController* controller;
     
     if ([Twitter instance].is_logged_in) {
@@ -33,11 +42,8 @@
     else {
         controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
     }
-
+    
     self.window.rootViewController = controller;
-
-    [self.window makeKeyAndVisible];
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -70,7 +76,9 @@
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     Twitter* client = [Twitter instance];
-    [client open_url:url];
+    [client open_url:url withSuccess:^{
+        [self init_main_window];
+    }];
     return YES;
 }
 
