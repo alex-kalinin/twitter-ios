@@ -21,6 +21,7 @@
 {
     Twitter*    _twitter;
     TwitCell*   _size_cell;
+    UIRefreshControl* _refreshControl;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,7 +37,12 @@
 {
     [super viewDidLoad];
     
+    _refreshControl = [UIRefreshControl new];
+    [_refreshControl addTarget:self action:@selector(refresh_on_pull) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:_refreshControl];
+    
     [[Twitter instance] load:^{
+        [_refreshControl endRefreshing];
         [self.tableView reloadData];
     }];
 
@@ -56,6 +62,18 @@
     self.tableView.dataSource = self;
     
     _size_cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
+}
+
+-(void) reload {
+    [[Twitter instance] reload:^{
+        [_refreshControl endRefreshing];
+        [self.tableView reloadData];
+    }];
+}
+
+-(void)refresh_on_pull
+{
+    [self reload];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

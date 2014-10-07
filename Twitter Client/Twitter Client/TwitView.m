@@ -8,3 +8,5 @@
 
 #import "TwitView.h"
 
+@implementation TwitData
+@end

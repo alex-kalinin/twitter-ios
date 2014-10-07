@@ -19,5 +19,14 @@
 -(BOOL) is_logged_in;
 
 -(void) load:(void(^)()) on_done;
+-(void) reload:(void (^)())on_done;
 -(void)sign_out;
+
+-(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)id
+    success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
+    failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure;
+- (AFHTTPRequestOperation *) unfavorite_twit_with_id:(NSString *)id
+success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
+failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

@@ -9,7 +9,7 @@
 #import "MyLabel.h"
 
 @implementation MyLabel
-
+//------------------------------------------------------------------------------
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -18,7 +18,7 @@
     }
     return self;
 }
-
+//------------------------------------------------------------------------------
 -(void)layoutSubviews
 {
     [super layoutSubviews];
@@ -30,7 +30,7 @@
         }
     }
 }
-
+//------------------------------------------------------------------------------
 -(CGSize)intrinsicContentSize {
     CGSize size = [super intrinsicContentSize];
     if (self.numberOfLines == 0) {
@@ -38,14 +38,4 @@
     }
     return size;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 @end

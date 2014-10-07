@@ -77,7 +77,7 @@ static Twitter* _twitterClient;
     NSMutableArray* result = [NSMutableArray new];
     
     for (NSDictionary* twit_dict in json) {
-        Twit* twit = [[Twit alloc]initWithDict:twit_dict];
+        Twit* twit = [[Twit alloc]initWithDict:twit_dict withTwitter:self];
         [result addObject:twit];
     }
     return result;
@@ -111,6 +111,22 @@ static Twitter* _twitterClient;
    }];
     
 }
+
+-(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)id
+                                            success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
+                                            failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    NSDictionary *parameters = @{@"id": id};
+    return [self POST:@"1.1/favorites/create.json" parameters:parameters success:success failure:failure];
+}
+
+- (AFHTTPRequestOperation *) unfavorite_twit_with_id:(NSString *)id
+                                         success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
+                                         failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSDictionary *parameters = @{@"id": id};
+    return [self POST:@"1.1/favorites/destroy.json" parameters:parameters success:success failure:failure];
+}
+
 
 -(void) load:(void (^)())on_done
 {

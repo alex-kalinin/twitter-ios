@@ -8,13 +8,14 @@
 
 #import "Twit.h"
 #import "User.h"
+#import "Twitter.h"
 
 static NSDateFormatter* _formatter;
-
+//------------------------------------------------------------------------------
 @interface Twit()
 @property (nonatomic, readonly, getter = get_date_formatter) NSDateFormatter* date_formatter;
 @end
-
+//------------------------------------------------------------------------------
 @implementation Twit
 {
 //    User*   _user;
@@ -24,8 +25,11 @@ static NSDateFormatter* _formatter;
     NSString*   _text;
     NSString*   _create_at_string;
     NSDate*     _create_at;
+    BOOL        _favorited;
+    Twitter*    _twitter;
+    NSString*   _id;
 }
-
+//------------------------------------------------------------------------------
 -(NSDateFormatter*)get_date_formatter
 {
     if (!_formatter) {
@@ -34,11 +38,13 @@ static NSDateFormatter* _formatter;
     }
     return _formatter;
 }
-
-- (instancetype)initWithDict:(NSDictionary *)dict
+//------------------------------------------------------------------------------
+- (instancetype)initWithDict:(NSDictionary *)dict withTwitter:(Twitter*)twitter
 {
     self = [super init];
     if (self) {
+        _twitter = twitter;
+        
         NSDictionary* user_dict = dict[@"user"];
 //        _user = [[User alloc]initWithDict:];
         _user_handle = user_dict[@"screen_name"];
@@ -48,17 +54,36 @@ static NSDateFormatter* _formatter;
         _text = dict[@"text"];
         _create_at_string = dict[@"created_at"];
         _create_at = [self.date_formatter dateFromString:_create_at_string];
+        
+        _favorited = [dict[@"favorited"] boolValue];
+        _id = dict[@"id"];
     }
     return self;
 }
-
+//------------------------------------------------------------------------------
 -(void)display:(id<TwitView>)view
 {
+    TwitData* data = [TwitData new];
+    data.favorited = _favorited;
+    
     [view display_twit_with_author:_user_handle
                           withName:_user_name
                         withText:_text
                       withDateText:@"HH"
-                      withImageUrl:_user_profile_url];
+                      withImageUrl:_user_profile_url
+                       withTwitData:data
+                          withTwit:self];
 }
-
+//------------------------------------------------------------------------------
+-(void) toggle_favorite
+{
+    _favorited = !_favorited;
+    
+    if (_favorited) {
+        [_twitter favorite_twit_with_id:_id success:nil failure:nil];
+    }
+    else {
+        [_twitter unfavorite_twit_with_id:_id success:nil failure:nil];
+    }
+}
 @end

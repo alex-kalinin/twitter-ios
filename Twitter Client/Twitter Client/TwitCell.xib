@@ -81,6 +81,9 @@
                         <state key="normal" image="Star">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="favorite_button_click:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5Om-NG-g8u"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -110,8 +113,11 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateStr" destination="Fn8-kr-uEn" id="1Mh-k6-GOC"/>
+                <outlet property="favorite_button" destination="HxJ-AJ-6v4" id="K5f-KC-imH"/>
                 <outlet property="handle" destination="s3Z-91-2Xa" id="G44-Hz-dxG"/>
                 <outlet property="name" destination="Jkk-OR-lb5" id="DnT-dd-SVr"/>
+                <outlet property="reply_button" destination="eWF-RQ-1fG" id="zPg-Nj-qSx"/>
+                <outlet property="retweet_button" destination="nOJ-uL-BBU" id="sbP-9E-h8w"/>
                 <outlet property="text" destination="8L8-cb-B1E" id="P23-Yh-oPn"/>
                 <outlet property="twitImage" destination="Hot-3T-3Cm" id="Vad-5w-dZ9"/>
             </connections>

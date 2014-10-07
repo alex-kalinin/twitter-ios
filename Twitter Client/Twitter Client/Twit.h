@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "TwitView.h"
 
+@class Twitter;
+
 @interface Twit : NSObject
--(id)initWithDict:(NSDictionary*)dict;
+-(id)initWithDict:(NSDictionary*)dict withTwitter:(Twitter*)twitter;
+
 -(void)display:(id<TwitView>) view;
+
+-(void) toggle_favorite;
 @end
+
