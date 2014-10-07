@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "TwitListController.h"
 #import "Util.h"
+#import "LoginViewController.h"
+#import "Twitter.h"
 
 @implementation AppDelegate
 
@@ -21,10 +23,18 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(TWITTER_COLOR_HEX)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
+    UIViewController* controller;
     
-    TwitListController* controller = [[TwitListController alloc]initWithNibName:@"TwitListController" bundle:nil];
-    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:controller];
-    self.window.rootViewController = nav;
+    if ([Twitter instance].is_logged_in) {
+        UIViewController* c = [[TwitListController alloc]initWithNibName:@"TwitListController" bundle:nil];
+        controller = [[UINavigationController alloc]initWithRootViewController:c];
+    }
+    else {
+        controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    }
+
+    self.window.rootViewController = controller;
 
     [self.window makeKeyAndVisible];
     return YES;
@@ -55,6 +65,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    Twitter* client = [Twitter instance];
+    [client open_url:url];
+    return YES;
 }
 
 @end

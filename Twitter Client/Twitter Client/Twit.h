@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TwitView.h"
 
 @interface Twit : NSObject
-
+-(id)initWithDict:(NSDictionary*)dict;
+-(void)display:(id<TwitView>) view;
 @end

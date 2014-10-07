@@ -34,6 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[Twitter instance] load:^{
+        [self.tableView reloadData];
+    }];
 
     self.title = @"Home";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Sign Out"
@@ -55,22 +59,26 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [Twitter instance].twit_count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TwitCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
-    [cell display_twit_with_author:nil withName:nil withText:nil withDateText:nil];
+    Twit* twit = [[Twitter instance] twit_at_index:indexPath.row];
+    [twit display:cell];
+//    [cell display_twit_with_author:nil withName:nil withText:nil withDateText:nil];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [_size_cell display_twit_with_author:nil withName:nil withText:nil withDateText:nil];
+    Twit* twit = [[Twitter instance] twit_at_index:indexPath.row];
+    _size_cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), 0.0f);
+    [twit display:_size_cell];
     CGSize size = [_size_cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     NSLog(@"Height: %f", size.height);
-    return size.height + 1;
+    return size.height;
 }
 
 -(void) new_twit
