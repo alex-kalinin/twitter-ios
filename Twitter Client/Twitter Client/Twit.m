@@ -29,6 +29,11 @@ static NSDateFormatter* _formatter;
     BOOL        _favorited;
     Twitter*    _twitter;
     NSString*   _id;
+    
+    long     _favorites_count;
+    
+    BOOL    _retwitted;
+    long    _retweet_count;
 }
 //------------------------------------------------------------------------------
 -(NSDateFormatter*)get_date_formatter
@@ -44,6 +49,9 @@ static NSDateFormatter* _formatter;
 {
     self = [super init];
     if (self) {
+        
+//        NSLog(@"%@", dict);
+        
         _twitter = twitter;
         
         NSDictionary* user_dict = dict[@"user"];
@@ -57,6 +65,11 @@ static NSDateFormatter* _formatter;
         _create_at = [self.date_formatter dateFromString:_create_at_string];
         
         _favorited = [dict[@"favorited"] boolValue];
+        _favorites_count = [dict[@"favorite_count"] integerValue];
+        
+        _retwitted = [dict[@"retweeted"] boolValue];
+        _retweet_count = [dict[@"retweet_count"] integerValue];
+        
         _id = dict[@"id"];
     }
     return self;
@@ -66,6 +79,9 @@ static NSDateFormatter* _formatter;
 {
     TwitData* data = [TwitData new];
     data.favorited = _favorited;
+    data.favorites_count = _favorites_count;
+    data.retweeted = _retwitted;
+    data.retweet_count = _retweet_count;
     
     NSString* date_str = _create_at.shortTimeAgoSinceNow;
     
@@ -81,6 +97,7 @@ static NSDateFormatter* _formatter;
 -(void) toggle_favorite
 {
     _favorited = !_favorited;
+    _favorites_count += _favorited ? 1 : -1;
     
     if (_favorited) {
         [_twitter favorite_twit_with_id:_id success:nil failure:nil];

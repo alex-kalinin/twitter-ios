@@ -3,11 +3,7 @@ Simple Twitte Client
 
 Time spent: 10.5h.
 
-### Implemented
-
-
-### TO DO
-
+### Implemented stories
 ###### Required
 * User can sign in using OAuth login flow
 * User can view last 20 tweets from their home timeline
@@ -15,6 +11,15 @@ Time spent: 10.5h.
 * In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp. In other words, design the custom cell with the proper Auto Layout settings. You will also need to augment the model classes.
 * User can pull to refresh
 * User can compose a new tweet by tapping on a compose button.
+
+###### Optional 
+* Optional: After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
+* Optional: User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
+
+
+### TO DO
+
+###### Required
 * User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 
 ###### Optional 

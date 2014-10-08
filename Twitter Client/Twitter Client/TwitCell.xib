@@ -85,6 +85,20 @@
                             <action selector="favorite_button_click:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5Om-NG-g8u"/>
                         </connections>
                     </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="15" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ga-7g-rTE">
+                        <rect key="frame" x="221" y="57" width="20" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="15" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Na-Vt-WvS">
+                        <rect key="frame" x="159" y="57" width="20" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eWF-RQ-1fG" secondAttribute="bottom" constant="7" id="6hb-uG-m82"/>
@@ -94,9 +108,12 @@
                     <constraint firstItem="eWF-RQ-1fG" firstAttribute="top" secondItem="8L8-cb-B1E" secondAttribute="bottom" constant="13" id="F0w-5G-gqd"/>
                     <constraint firstItem="Fn8-kr-uEn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="IRx-zd-UxK"/>
                     <constraint firstItem="8L8-cb-B1E" firstAttribute="leading" secondItem="Hot-3T-3Cm" secondAttribute="trailing" constant="13" id="K2E-fs-ujb"/>
+                    <constraint firstItem="6Na-Vt-WvS" firstAttribute="top" secondItem="8L8-cb-B1E" secondAttribute="bottom" constant="17" id="Spg-RU-QQT"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Hot-3T-3Cm" secondAttribute="bottom" priority="999" constant="7" id="XEj-qi-NTF"/>
                     <constraint firstItem="Hot-3T-3Cm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="XTN-Ip-NWI"/>
                     <constraint firstItem="Fn8-kr-uEn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="s3Z-91-2Xa" secondAttribute="trailing" constant="5" id="eJQ-Zu-ZSC"/>
+                    <constraint firstItem="6Ga-7g-rTE" firstAttribute="top" secondItem="8L8-cb-B1E" secondAttribute="bottom" constant="17" id="gFk-l3-xeh"/>
+                    <constraint firstItem="6Ga-7g-rTE" firstAttribute="leading" secondItem="HxJ-AJ-6v4" secondAttribute="trailing" id="gtj-3D-76g"/>
                     <constraint firstItem="Hot-3T-3Cm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="guo-yJ-fAQ"/>
                     <constraint firstItem="s3Z-91-2Xa" firstAttribute="leading" secondItem="Jkk-OR-lb5" secondAttribute="trailing" constant="8" id="jJh-by-KMz"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nOJ-uL-BBU" secondAttribute="bottom" constant="7" id="lA2-fc-nJ3"/>
@@ -108,6 +125,7 @@
                     <constraint firstAttribute="trailing" secondItem="Fn8-kr-uEn" secondAttribute="trailing" constant="4" id="tUp-4v-Agf"/>
                     <constraint firstItem="8L8-cb-B1E" firstAttribute="top" secondItem="s3Z-91-2Xa" secondAttribute="bottom" constant="4" id="v7Y-Wy-Hye"/>
                     <constraint firstItem="HxJ-AJ-6v4" firstAttribute="top" secondItem="8L8-cb-B1E" secondAttribute="bottom" constant="13" id="vh5-Wd-z3y"/>
+                    <constraint firstItem="6Na-Vt-WvS" firstAttribute="leading" secondItem="nOJ-uL-BBU" secondAttribute="trailing" constant="2" id="xci-wK-tED"/>
                     <constraint firstAttribute="trailing" secondItem="8L8-cb-B1E" secondAttribute="trailing" constant="4" id="yrK-6K-QD3"/>
                 </constraints>
             </tableViewCellContentView>
@@ -118,6 +136,8 @@
                 <outlet property="name" destination="Jkk-OR-lb5" id="DnT-dd-SVr"/>
                 <outlet property="reply_button" destination="eWF-RQ-1fG" id="zPg-Nj-qSx"/>
                 <outlet property="retweet_button" destination="nOJ-uL-BBU" id="sbP-9E-h8w"/>
+                <outlet property="retweet_count" destination="6Na-Vt-WvS" id="TWv-pG-fnH"/>
+                <outlet property="star_count" destination="6Ga-7g-rTE" id="NJx-Fj-ZFA"/>
                 <outlet property="text" destination="8L8-cb-B1E" id="P23-Yh-oPn"/>
                 <outlet property="twitImage" destination="Hot-3T-3Cm" id="Vad-5w-dZ9"/>
             </connections>

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Alex Kalinin. All rights reserved.
 //
 
+#import "Util.h"
 #import "TwitCell.h"
 #import "Twit.h"
 #import "MyLabel.h"
@@ -20,6 +21,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *reply_button;
 @property (strong, nonatomic) IBOutlet UIButton *retweet_button;
 @property (strong, nonatomic) IBOutlet UIButton *favorite_button;
+@property (strong, nonatomic) IBOutlet UILabel *retweet_count;
+@property (strong, nonatomic) IBOutlet UILabel *star_count;
 
 @end
 
@@ -48,6 +51,10 @@
                    withTwitData:(TwitData *)twit_data
                        withTwit:(Twit*)twit
 {
+    UIColor* orange = UIColorFromRGB(0xffac33);
+    UIColor* gray = [UIColor darkGrayColor];
+    UIColor* green = UIColorFromRGB(0x5c913b);
+    
     _twit = twit;
     self.name.text = name;
     self.handle.text = [NSString stringWithFormat:@"@%@", author_handle];
@@ -55,12 +62,18 @@
     self.text.text = text;
     [self.twitImage setImageWithURL:[NSURL URLWithString:imageUrl]];
     
-    if (twit_data.favorited) {
-        [self.favorite_button setImage:[UIImage imageNamed:@"StarSelected"] forState:UIControlStateNormal];
-    }
-    else {
-        [self.favorite_button setImage:[UIImage imageNamed:@"Star"] forState:UIControlStateNormal];
-    }
+    self.star_count.text = [NSString stringWithFormat:@"%li", twit_data.favorites_count];
+    self.retweet_count.text = [NSString stringWithFormat:@"%li", twit_data.retweet_count];
+
+    [self.favorite_button setImage:[UIImage imageNamed:
+                                    (twit_data.favorited ? @"StarSelected" : @"Star")]
+                          forState:UIControlStateNormal];
+    self.star_count.textColor = twit_data.favorited ? orange : gray;
+
+    
+    [self.retweet_button setImage:[UIImage imageNamed:(twit_data.retweeted ? @"RetweetSelected" : @"Retwit")]
+                         forState:UIControlStateNormal];
+    self.retweet_count.textColor = twit_data.retweeted ? green : gray;
 }
 
 - (IBAction)favorite_button_click:(id)sender {

@@ -12,6 +12,9 @@
 
 @interface TwitData : NSObject
 @property (nonatomic) BOOL favorited;
+@property (nonatomic) long favorites_count;
+@property (nonatomic) BOOL retweeted;
+@property (nonatomic) long retweet_count;
 @end
 //------------------------------------------------------------------------------
 @protocol TwitView <NSObject>
