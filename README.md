@@ -1,7 +1,7 @@
 Simple Twitte Client
 ===========
 
-Time spent: 7.5h.
+Time spent: 10.5h.
 
 ### Implemented
 

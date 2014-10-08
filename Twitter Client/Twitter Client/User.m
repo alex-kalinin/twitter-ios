@@ -30,7 +30,6 @@ static User *_currentuser;
     return self;
 }
 
-
 + (User *)currentUser {
     if (!_currentuser) {
         NSData *userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"twitter_user"];
@@ -58,23 +57,6 @@ static User *_currentuser;
     User.currentUser = nil;
     [[[Twitter instance] requestSerializer] removeAccessToken];
 }
-
-//+ (void)verifyCurrentUserWithSuccess:(void(^) ())success failure:(void (^) (NSError *error))failure {
-//    [[Twitter instance] verifyCredentialWithSuccess:^(AFHTTPRequestOperation *operation, id respond) {
-//        NSLog(@"[User] verify user successfully");
-//        User *user = [[User alloc] initWithDictionary:respond];
-//        [User setCurrentUser:user];
-//        if (success) {
-//            success();
-//        }
-//    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"[User] verigy user fail");
-//        if (failure) {
-//            failure(error);
-//        }
-//    }];
-//}
-
 
 
 

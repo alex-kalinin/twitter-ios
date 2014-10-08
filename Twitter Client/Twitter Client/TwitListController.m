@@ -11,6 +11,7 @@
 #import "Twit.h"
 #import "TwitCell.h"
 #import "LoginViewController.h"
+#import "NewTwitController.h"
 
 @interface TwitListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -19,7 +20,6 @@
 
 @implementation TwitListController
 {
-    Twitter*    _twitter;
     TwitCell*   _size_cell;
     UIRefreshControl* _refreshControl;
 }
@@ -57,39 +57,38 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TwitCell" bundle:nil]
          forCellReuseIdentifier:@"TwitCell"];
     
-    _twitter = [Twitter new];
+//    _twitter = [Twitter new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     _size_cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
 }
-
+//------------------------------------------------------------------------------
 -(void) reload {
     [[Twitter instance] reload:^{
         [_refreshControl endRefreshing];
         [self.tableView reloadData];
     }];
 }
-
+//------------------------------------------------------------------------------
 -(void)refresh_on_pull
 {
     [self reload];
 }
-
+//------------------------------------------------------------------------------
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [Twitter instance].twit_count;
 }
-
+//------------------------------------------------------------------------------
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TwitCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
     Twit* twit = [[Twitter instance] twit_at_index:indexPath.row];
     [twit display:cell];
-//    [cell display_twit_with_author:nil withName:nil withText:nil withDateText:nil];
     return cell;
 }
-
+//------------------------------------------------------------------------------
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Twit* twit = [[Twitter instance] twit_at_index:indexPath.row];
@@ -99,19 +98,29 @@
     NSLog(@"Height: %f", size.height);
     return size.height;
 }
-
+//------------------------------------------------------------------------------
 -(void) new_twit
 {
-    
+    NewTwitController* c = [NewTwitController new];
+    c.delegate = self;
+    [c set_user:User.currentUser];
+    [self.navigationController pushViewController:c animated:YES];
 }
-
+//------------------------------------------------------------------------------
+-(void)new_twit_controller_done:(NewTwitController *)twc withText:(NSString *)text
+{
+    [[Twitter instance] twit_with_text:text success:^(Twit* new_twit) {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+}
+//------------------------------------------------------------------------------
 -(void) sign_out_click
 {
     [[Twitter instance] sign_out];
     UIViewController* controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
     [self presentViewController:controller animated:YES completion:nil];
 }
-
+//------------------------------------------------------------------------------
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

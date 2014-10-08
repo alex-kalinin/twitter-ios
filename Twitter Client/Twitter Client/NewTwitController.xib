@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewTwitController">
+            <connections>
+                <outlet property="profile_image" destination="52C-aV-xN5" id="8Yb-C8-LLy"/>
+                <outlet property="twit_text" destination="a1b-D4-7Rv" id="MFa-cP-yOH"/>
+                <outlet property="user_handle" destination="AhL-Uc-jZ5" id="YFF-vP-saw"/>
+                <outlet property="user_name" destination="swF-ty-ibB" id="qHb-0W-SAC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52C-aV-xN5">
+                    <rect key="frame" x="10" y="70" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="692-K3-go4"/>
+                        <constraint firstAttribute="height" constant="50" id="jQe-O7-8f8"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuck Norris" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swF-ty-ibB">
+                    <rect key="frame" x="70" y="70" width="95" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@chucknorris" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhL-Uc-jZ5">
+                    <rect key="frame" x="70" y="95" width="87" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Twit text goes here" translatesAutoresizingMaskIntoConstraints="NO" id="a1b-D4-7Rv">
+                    <rect key="frame" x="10" y="145" width="300" height="145"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="145" id="3Si-ao-BDq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="swF-ty-ibB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="9Pn-1v-66R"/>
+                <constraint firstItem="a1b-D4-7Rv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="9r1-aT-WKH"/>
+                <constraint firstAttribute="trailing" secondItem="a1b-D4-7Rv" secondAttribute="trailing" constant="10" id="CXN-au-XWH"/>
+                <constraint firstItem="52C-aV-xN5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ClM-Hk-Sy0"/>
+                <constraint firstItem="AhL-Uc-jZ5" firstAttribute="leading" secondItem="52C-aV-xN5" secondAttribute="trailing" constant="10" id="TpK-Ca-Tzm"/>
+                <constraint firstItem="AhL-Uc-jZ5" firstAttribute="top" secondItem="swF-ty-ibB" secondAttribute="bottom" constant="5" id="Z4D-Bn-IJN"/>
+                <constraint firstItem="52C-aV-xN5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="anm-lB-0WN"/>
+                <constraint firstItem="a1b-D4-7Rv" firstAttribute="top" secondItem="52C-aV-xN5" secondAttribute="bottom" constant="25" id="d4I-2V-rZz"/>
+                <constraint firstItem="swF-ty-ibB" firstAttribute="leading" secondItem="52C-aV-xN5" secondAttribute="trailing" constant="10" id="geA-Hl-4Bm"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A33E166959A4C24A36BEEE1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DE16CB6AF245B282941DF0 /* libPods.a */; };
+		A123DEDE19E4B60100AE21B4 /* NewTwitController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A123DEDD19E4B60100AE21B4 /* NewTwitController.xib */; };
+		A123DEE119E4B84900AE21B4 /* NewTwitController.m in Sources */ = {isa = PBXBuildFile; fileRef = A123DEE019E4B84900AE21B4 /* NewTwitController.m */; };
 		A1721E0D19E1B46C00254A89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1721E0C19E1B46C00254A89 /* Foundation.framework */; };
 		A1721E0F19E1B46C00254A89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1721E0E19E1B46C00254A89 /* CoreGraphics.framework */; };
 		A1721E1119E1B46C00254A89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1721E1019E1B46C00254A89 /* UIKit.framework */; };
@@ -55,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A123DEDD19E4B60100AE21B4 /* NewTwitController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTwitController.xib; sourceTree = "<group>"; };
+		A123DEDF19E4B84900AE21B4 /* NewTwitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTwitController.h; sourceTree = "<group>"; };
+		A123DEE019E4B84900AE21B4 /* NewTwitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTwitController.m; sourceTree = "<group>"; };
 		A1721E0919E1B46C00254A89 /* Twitter Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1721E0C19E1B46C00254A89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1721E0E19E1B46C00254A89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -218,6 +223,9 @@
 				A193AA0419E36FAC00378964 /* LoginViewController.h */,
 				A193AA0519E36FAC00378964 /* LoginViewController.m */,
 				A193AA0619E36FAC00378964 /* LoginViewController.xib */,
+				A123DEDD19E4B60100AE21B4 /* NewTwitController.xib */,
+				A123DEDF19E4B84900AE21B4 /* NewTwitController.h */,
+				A123DEE019E4B84900AE21B4 /* NewTwitController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -355,6 +363,7 @@
 				A1721E1F19E1B46C00254A89 /* Images.xcassets in Resources */,
 				A1721E4019E1B49C00254A89 /* TwitListController.xib in Resources */,
 				A1A16A7319E24A34000E146C /* star.png in Resources */,
+				A123DEDE19E4B60100AE21B4 /* NewTwitController.xib in Resources */,
 				A1A16A7219E24A34000E146C /* star-selected@2x.png in Resources */,
 				A1A16A6C19E24A34000E146C /* reply@2x.png in Resources */,
 				A1A16A7019E24A34000E146C /* retweet@2x.png in Resources */,
@@ -417,6 +426,7 @@
 				A1721E5019E1D9FE00254A89 /* Twitter.m in Sources */,
 				A193AA0B19E37A4D00378964 /* User.m in Sources */,
 				A1721E4819E1D9BD00254A89 /* TwitCell.m in Sources */,
+				A123DEE119E4B84900AE21B4 /* NewTwitController.m in Sources */,
 				A1721E4319E1B62300254A89 /* Util.m in Sources */,
 				A193AA0719E36FAC00378964 /* LoginViewController.m in Sources */,
 				A1721E4D19E1D9F300254A89 /* Twit.m in Sources */,

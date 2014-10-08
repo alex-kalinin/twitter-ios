@@ -22,6 +22,8 @@
 -(void) reload:(void (^)())on_done;
 -(void)sign_out;
 
+-(void) twit_with_text:(NSString*)text success:(void(^)(Twit*))on_success;
+
 -(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)id
     success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
     failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure;

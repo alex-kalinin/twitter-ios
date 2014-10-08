@@ -9,6 +9,7 @@
 #import "Twit.h"
 #import "User.h"
 #import "Twitter.h"
+#import "NSDate+DateTools.h"
 
 static NSDateFormatter* _formatter;
 //------------------------------------------------------------------------------
@@ -46,7 +47,7 @@ static NSDateFormatter* _formatter;
         _twitter = twitter;
         
         NSDictionary* user_dict = dict[@"user"];
-//        _user = [[User alloc]initWithDict:];
+
         _user_handle = user_dict[@"screen_name"];
         _user_name = user_dict[@"name"];
         _user_profile_url = user_dict[@"profile_image_url"];
@@ -66,10 +67,12 @@ static NSDateFormatter* _formatter;
     TwitData* data = [TwitData new];
     data.favorited = _favorited;
     
+    NSString* date_str = _create_at.shortTimeAgoSinceNow;
+    
     [view display_twit_with_author:_user_handle
                           withName:_user_name
                         withText:_text
-                      withDateText:@"HH"
+                      withDateText:date_str
                       withImageUrl:_user_profile_url
                        withTwitData:data
                           withTwit:self];

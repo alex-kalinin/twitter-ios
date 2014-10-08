@@ -9,19 +9,19 @@
 #import "Twitter.h"
 #import "Twit.h"
 #import "User.h"
-
+//------------------------------------------------------------------------------
 NSString* API_KEY = @"7RmP45H9CIzTBFAzNywETt1dw";
 NSString* API_SECRET = @"ULTxpra7YVpsSzEd3iZrKhSxmE2tKwXOEITwAiQZiuznaLq6u2";
 NSString* BASE_URL = @"https://api.twitter.com";
-
+//------------------------------------------------------------------------------
 static Twitter* _twitterClient;
-
+//------------------------------------------------------------------------------
 @implementation Twitter
 {
-    NSArray*    _twits;
-    User*       _user;
+    NSMutableArray*    _twits;
+    User*              _user;
 }
-
+//------------------------------------------------------------------------------
 +(Twitter *)instance
 {
     if (!_twitterClient) {
@@ -31,7 +31,7 @@ static Twitter* _twitterClient;
     }
     return _twitterClient;
 }
-
+//------------------------------------------------------------------------------
 -(void)login
 {
     [self.requestSerializer removeAccessToken];
@@ -51,7 +51,26 @@ static Twitter* _twitterClient;
          NSLog(@"Error getting the request token");
      }];
 }
-
+//------------------------------------------------------------------------------
+-(void)twit_with_text:(NSString*)text success:(void(^)(Twit*))on_success
+{
+    NSDictionary *parameters = @{@"status": text};
+    [self POST:@"1.1/statuses/update.json"
+    parameters:parameters
+       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+           Twit* result = [[Twit alloc]initWithDict:responseObject withTwitter:self];
+           [_twits insertObject:result atIndex:0];
+           on_success(result);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        [[[UIAlertView alloc]initWithTitle:@"Send error"
+                                  message:[NSString stringWithFormat:@"%@", error]
+                                 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }];
+}
+//------------------------------------------------------------------------------
 -(void)open_url:(NSURL *)url withSuccess:(void(^)())on_done
 {
     [self fetchAccessTokenWithPath:@"oauth/access_token"
@@ -61,18 +80,21 @@ static Twitter* _twitterClient;
                                  
                                  NSLog(@"Got access token");
                                  [self.requestSerializer saveAccessToken:accessToken];
-                                 on_done();
-//                                 [self reload:^{
-//                                     on_done();
-//                                 }];
                                  
+                                 [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                     User* user = [[User alloc]initWithDict:responseObject];
+                                     User.currentUser = user;
+                                     on_done();
+                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                     NSLog(@"failed to verify user credentials");
+                                 }];
                              } failure:^(NSError *error) {
                                  NSLog(@"Fail to get access token");
                              }];
 
 }
-
--(NSArray*) load_twits_from_json:(NSArray*) json
+//------------------------------------------------------------------------------
+-(NSMutableArray*) load_twits_from_json:(NSArray*) json
 {
     NSMutableArray* result = [NSMutableArray new];
     
@@ -82,22 +104,22 @@ static Twitter* _twitterClient;
     }
     return result;
 }
-
+//------------------------------------------------------------------------------
 -(unsigned long)get_twit_count
 {
     return _twits.count;
 }
-
+//------------------------------------------------------------------------------
 -(Twit *)twit_at_index:(unsigned long)index
 {
     return _twits[index];
 }
-
+//------------------------------------------------------------------------------
 -(BOOL)is_logged_in
 {
     return self.requestSerializer.accessToken;
 }
-
+//------------------------------------------------------------------------------
 -(void) reload:(void (^)())on_done
 {
     [self GET:@"1.1/statuses/home_timeline.json"
@@ -111,7 +133,7 @@ static Twitter* _twitterClient;
    }];
     
 }
-
+//------------------------------------------------------------------------------
 -(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)id
                                             success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
                                             failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure
@@ -119,15 +141,14 @@ static Twitter* _twitterClient;
     NSDictionary *parameters = @{@"id": id};
     return [self POST:@"1.1/favorites/create.json" parameters:parameters success:success failure:failure];
 }
-
+//------------------------------------------------------------------------------
 - (AFHTTPRequestOperation *) unfavorite_twit_with_id:(NSString *)id
                                          success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
                                          failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure {
     NSDictionary *parameters = @{@"id": id};
     return [self POST:@"1.1/favorites/destroy.json" parameters:parameters success:success failure:failure];
 }
-
-
+//------------------------------------------------------------------------------
 -(void) load:(void (^)())on_done
 {
     if (_twits) {
@@ -139,7 +160,7 @@ static Twitter* _twitterClient;
         }];
     }
 }
-
+//------------------------------------------------------------------------------
 -(void) sign_out
 {
     [self.requestSerializer removeAccessToken];
