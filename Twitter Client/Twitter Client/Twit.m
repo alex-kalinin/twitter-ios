@@ -106,4 +106,19 @@ static NSDateFormatter* _formatter;
         [_twitter unfavorite_twit_with_id:_id success:nil failure:nil];
     }
 }
+//------------------------------------------------------------------------------
+-(void)toggle_retweet
+{
+    _retwitted = !_retwitted;
+    _retweet_count += _retwitted ? 1 : -1;
+    
+    if (_retwitted) {
+        [_twitter retweet_with_id:_id success:nil failure:nil];
+    }
+    else {
+        [_twitter destroy_with_id:_id success:nil failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", error);
+        }];
+    }
+}
 @end

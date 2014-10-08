@@ -17,5 +17,7 @@
 -(void)display:(id<TwitView>) view;
 
 -(void) toggle_favorite;
+-(void) toggle_retweet;
+
 @end
 

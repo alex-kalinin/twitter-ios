@@ -81,4 +81,9 @@
     [_twit display:self];
 }
 
+- (IBAction)retweet_button_click:(id)sender {
+    [_twit toggle_retweet];
+    [_twit display:self];
+}
+
 @end

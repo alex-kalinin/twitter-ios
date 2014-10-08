@@ -24,11 +24,19 @@
 
 -(void) twit_with_text:(NSString*)text success:(void(^)(Twit*))on_success;
 
--(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)id
+-(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)tweet_id
     success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
     failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure;
 - (AFHTTPRequestOperation *) unfavorite_twit_with_id:(NSString *)id
 success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
 failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure;
+
+- (AFHTTPRequestOperation *)retweet_with_id:(NSString *)tweet_id
+                                  success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
+failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure;
+
+- (AFHTTPRequestOperation *)destroy_with_id:(NSString*)tweet_id
+                                    success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
+                                    failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure;
 
 @end

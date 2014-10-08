@@ -134,18 +134,18 @@ static Twitter* _twitterClient;
     
 }
 //------------------------------------------------------------------------------
--(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)id
+-(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)tweet_id
                                             success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
                                             failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure
 {
-    NSDictionary *parameters = @{@"id": id};
+    NSDictionary *parameters = @{@"id": tweet_id};
     return [self POST:@"1.1/favorites/create.json" parameters:parameters success:success failure:failure];
 }
 //------------------------------------------------------------------------------
-- (AFHTTPRequestOperation *) unfavorite_twit_with_id:(NSString *)id
+- (AFHTTPRequestOperation *) unfavorite_twit_with_id:(NSString *)tweet_id
                                          success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
                                          failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure {
-    NSDictionary *parameters = @{@"id": id};
+    NSDictionary *parameters = @{@"id": tweet_id};
     return [self POST:@"1.1/favorites/destroy.json" parameters:parameters success:success failure:failure];
 }
 //------------------------------------------------------------------------------
@@ -164,6 +164,26 @@ static Twitter* _twitterClient;
 -(void) sign_out
 {
     [self.requestSerializer removeAccessToken];
+}
+//------------------------------------------------------------------------------
+- (AFHTTPRequestOperation *)retweet_with_id:(NSString *)tweet_id
+                                    success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
+                                    failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    return [self POST:[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweet_id]
+           parameters:nil
+              success:success
+              failure:failure];
+}
+//------------------------------------------------------------------------------
+- (AFHTTPRequestOperation *)destroy_with_id:(NSString*)tweet_id
+                                  success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
+                                  failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    return [self POST:[NSString stringWithFormat:@"1.1/statuses/destroy/%@.json", tweet_id]
+           parameters:nil
+              success:success
+              failure:failure];
 }
 
 @end
