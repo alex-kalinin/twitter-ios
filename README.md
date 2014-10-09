@@ -1,4 +1,4 @@
-Simple Twitte Client
+Simple Twitter Client
 ===========
 
 Time spent: 15h.
