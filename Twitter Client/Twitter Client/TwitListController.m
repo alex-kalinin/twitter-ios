@@ -23,6 +23,7 @@
 {
     TwitCell*   _size_cell;
     UIRefreshControl* _refreshControl;
+    Twitter*    _twitter;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -62,6 +63,8 @@
     self.tableView.dataSource = self;
     
     _size_cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
+    
+    _twitter = [Twitter instance];
 }
 //------------------------------------------------------------------------------
 -(void) reload {
@@ -138,8 +141,10 @@
     [cell setSelected:NO animated:YES];
 }
 //------------------------------------------------------------------------------
--(void)tweet_detail_controller_done:(TweetDetailController *)td
+-(void)tweet_detail_controller_done:(TweetDetailController *)td withTweet:(Twit *)tweet
 {
-    
+    long index = [_twitter index_for_tweet:tweet];
+    id<TwitView> cell = (id<TwitView>) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    [tweet display:cell];
 }
 @end

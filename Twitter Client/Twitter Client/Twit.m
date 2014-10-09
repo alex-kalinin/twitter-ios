@@ -99,6 +99,7 @@ static NSDateFormatter* _formatter;
 {
     _favorited = !_favorited;
     _favorites_count += _favorited ? 1 : -1;
+    if (_favorites_count < 0) _favorites_count = 0; // Sometimes we get (Favorited; favirite_count:0) from Twitter;
     
     if (_favorited) {
         [_twitter favorite_twit_with_id:_id success:nil failure:nil];

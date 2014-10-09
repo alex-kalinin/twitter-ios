@@ -87,4 +87,9 @@
 {
     _tweet = twit;
 }
+//------------------------------------------------------------------------------
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.delegate tweet_detail_controller_done:self withTweet:_tweet];
+}
 @end

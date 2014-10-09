@@ -12,7 +12,7 @@
 @class TweetDetailController;
 
 @protocol TweetDetailControllerDelegate<NSObject>
--(void) tweet_detail_controller_done:(TweetDetailController*)td;
+-(void) tweet_detail_controller_done:(TweetDetailController*)td withTweet:(Twit*)tweet;
 @end
 
 

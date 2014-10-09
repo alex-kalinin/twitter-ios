@@ -119,6 +119,11 @@ static Twitter* _twitterClient;
 {
     return self.requestSerializer.accessToken != nil;
 }
+
+-(long)index_for_tweet:(Twit *)tweet
+{
+    return [_twits indexOfObject:tweet];
+}
 //------------------------------------------------------------------------------
 -(void) reload:(void (^)())on_done
 {
