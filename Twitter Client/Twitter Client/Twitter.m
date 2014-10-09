@@ -117,7 +117,7 @@ static Twitter* _twitterClient;
 //------------------------------------------------------------------------------
 -(BOOL)is_logged_in
 {
-    return self.requestSerializer.accessToken;
+    return self.requestSerializer.accessToken != nil;
 }
 //------------------------------------------------------------------------------
 -(void) reload:(void (^)())on_done

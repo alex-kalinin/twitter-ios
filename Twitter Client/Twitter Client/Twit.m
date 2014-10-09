@@ -82,6 +82,7 @@ static NSDateFormatter* _formatter;
     data.favorites_count = _favorites_count;
     data.retweeted = _retwitted;
     data.retweet_count = _retweet_count;
+    data.tweet_date = _create_at;
     
     NSString* date_str = _create_at.shortTimeAgoSinceNow;
     

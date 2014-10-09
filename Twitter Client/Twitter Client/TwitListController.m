@@ -12,6 +12,7 @@
 #import "TwitCell.h"
 #import "LoginViewController.h"
 #import "NewTwitController.h"
+#import "TweetDetailController.h"
 
 @interface TwitListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -57,7 +58,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TwitCell" bundle:nil]
          forCellReuseIdentifier:@"TwitCell"];
     
-//    _twitter = [Twitter new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -95,7 +95,6 @@
     _size_cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), 0.0f);
     [twit display:_size_cell];
     CGSize size = [_size_cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    NSLog(@"Height: %f", size.height);
     return size.height;
 }
 //------------------------------------------------------------------------------
@@ -126,5 +125,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//------------------------------------------------------------------------------
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TweetDetailController* td = [TweetDetailController new];
+    td.delegate = self;
+    Twit* twit = [[Twitter instance] twit_at_index:indexPath.row];
+    [td set_tweet:twit];
+    [self.navigationController pushViewController:td animated:YES];
+    
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO animated:YES];
+}
+//------------------------------------------------------------------------------
+-(void)tweet_detail_controller_done:(TweetDetailController *)td
+{
+    
+}
 @end

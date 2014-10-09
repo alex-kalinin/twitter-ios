@@ -8,12 +8,13 @@
 
 #import "NewTwitController.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIPlaceHolderTextView.h"
 
 @interface NewTwitController ()
 @property (strong, nonatomic) IBOutlet UIImageView *profile_image;
 @property (strong, nonatomic) IBOutlet UILabel *user_name;
 @property (strong, nonatomic) IBOutlet UILabel *user_handle;
-@property (strong, nonatomic) IBOutlet UITextView *twit_text;
+@property (strong, nonatomic) IBOutlet UIPlaceHolderTextView *twit_text;
 
 @end
 //------------------------------------------------------------------------------
@@ -48,6 +49,9 @@
     self.twit_text.text = @"";
     
     [self.twit_text becomeFirstResponder];
+    
+    self.twit_text.placeholder = @"What's happening?";
+    self.twit_text.placeholderColor = [UIColor lightGrayColor];
 }
 //------------------------------------------------------------------------------
 -(void)set_user:(User *)author

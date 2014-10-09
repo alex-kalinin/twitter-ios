@@ -15,6 +15,7 @@
 @property (nonatomic) long favorites_count;
 @property (nonatomic) BOOL retweeted;
 @property (nonatomic) long retweet_count;
+@property (nonatomic) NSDate* tweet_date;
 @end
 //------------------------------------------------------------------------------
 @protocol TwitView <NSObject>
