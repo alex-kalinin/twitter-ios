@@ -9,6 +9,7 @@
 #import "NewTwitController.h"
 #import "UIImageView+AFNetworking.h"
 #import "UIPlaceHolderTextView.h"
+#import "Util.h"
 
 @interface NewTwitController ()
 @property (strong, nonatomic) IBOutlet UIImageView *profile_image;
@@ -21,6 +22,8 @@
 @implementation NewTwitController
 {
     User* _author;
+    UILabel* _remain_count;
+    UIBarButtonItem*    _remain_button;
 }
 //------------------------------------------------------------------------------
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,14 +38,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Home";
+    self.title = @"";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Cancel"
                                                                             style:UIBarButtonItemStylePlain target:self
                                                                            action:@selector(cancel_click)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Send"
+    
+    UIBarButtonItem* send_button = [[UIBarButtonItem alloc]initWithTitle:@"Send"
                                                                              style:UIBarButtonItemStylePlain target:self
 
                                                                             action:@selector(send_click)];
+
+//    _remain_count = [[UIBarButtonItem alloc]initWithTitle:@"140"
+//                                                                    style:UIBarButtonItemStylePlain
+//                                                                   target:self
+//                                                                   action:nil];
+//    [_remain_count setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} forState:UIControlStateNormal];
+    
+    _remain_count = [[UILabel alloc]init];
+    _remain_count.text = @"140  ";
+    _remain_count.textColor = [UIColor whiteColor];
+    [_remain_count setFont:[UIFont systemFontOfSize:12]];
+    _remain_count.numberOfLines = 1;
+    _remain_count.textAlignment = NSTextAlignmentRight;
+    [_remain_count sizeToFit];
+    
+    _remain_button = [[UIBarButtonItem alloc]initWithCustomView:_remain_count];
+    
+    self.navigationItem.rightBarButtonItems = @[send_button, _remain_button];
+//    self.navigationItem.rightBarButtonItem = _remain_button;
+    
     self.user_name.text = _author.name;
     self.user_handle.text = [NSString stringWithFormat:@"@%@", _author.user_handle];
     [self.profile_image setImageWithURL:[NSURL URLWithString:_author.thumbnail_url]];
@@ -52,6 +76,7 @@
     
     self.twit_text.placeholder = @"What's happening?";
     self.twit_text.placeholderColor = [UIColor lightGrayColor];
+    self.twit_text.delegate = self;
 }
 //------------------------------------------------------------------------------
 -(void)set_user:(User *)author
@@ -76,5 +101,9 @@
     // Dispose of any resources that can be recreated.
 }
 //------------------------------------------------------------------------------
+-(void)textViewDidChange:(UITextView *)textView
+{
+    _remain_count.text = [NSString stringWithFormat:@"%li  ", 140 - textView.text.length];
+}
 
 @end

@@ -131,7 +131,6 @@ static Twitter* _twitterClient;
    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
        NSLog(@"Error: %@", error);
    }];
-    
 }
 //------------------------------------------------------------------------------
 -(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)tweet_id
