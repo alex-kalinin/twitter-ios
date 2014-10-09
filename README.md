@@ -3,6 +3,9 @@ Simple Twitte Client
 
 Time spent: 15h.
 
+## Walkthrough
+![Video Walkthrough](twitter-walkthrough.gif)
+
 ### Implemented stories
 ###### Required - all
 * User can sign in using OAuth login flow
