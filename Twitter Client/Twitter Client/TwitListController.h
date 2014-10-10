@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "NewTwitController.h"
 #import "TweetDetailController.h"
+#import "TwitCell.h"
 
-@interface TwitListController : UIViewController<UITableViewDelegate, UITableViewDataSource, NewTwitControllerDelegate, TweetDetailControllerDelegate>
+@interface TwitListController : UIViewController<UITableViewDelegate, UITableViewDataSource, NewTwitControllerDelegate, TweetDetailControllerDelegate, TweetCellDelegate>
 
 @end

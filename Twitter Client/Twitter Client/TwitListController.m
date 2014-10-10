@@ -89,6 +89,7 @@
     TwitCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
     Twit* twit = [[Twitter instance] twit_at_index:indexPath.row];
     [twit display:cell];
+    cell.delegate = self;
     return cell;
 }
 //------------------------------------------------------------------------------
@@ -141,10 +142,27 @@
     [cell setSelected:NO animated:YES];
 }
 //------------------------------------------------------------------------------
--(void)tweet_detail_controller_done:(TweetDetailController *)td withTweet:(Twit *)tweet
+-(void)tweet_detail_controller_done:(TweetDetailController *)td withTweet:(Twit *)tweet withReply:(BOOL)reply
 {
     long index = [_twitter index_for_tweet:tweet];
     id<TwitView> cell = (id<TwitView>) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
     [tweet display:cell];
+    
+    if (reply) {
+        NewTwitController* c = [NewTwitController new];
+        c.delegate = self;
+        [c set_user:User.currentUser withText:tweet.user_handle];
+        [self.navigationController pushViewController:c animated:YES];
+    }
 }
+//------------------------------------------------------------------------------
+-(void)reply_click:(Twit *)tweet
+{
+    NewTwitController* c = [NewTwitController new];
+    c.delegate = self;
+    [c set_user:User.currentUser
+       withText:[NSString stringWithFormat:@"%@ ", tweet.user_handle]];
+    [self.navigationController pushViewController:c animated:YES];
+}
+
 @end

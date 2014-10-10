@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TwitView.h"
 
-@interface TwitCell : UITableViewCell<TwitView>
+@protocol TweetCellDelegate <NSObject>
 
+-(void)reply_click:(Twit*)tweet;
+
+@end
+
+@interface TwitCell : UITableViewCell<TwitView>
+@property (nonatomic) id<TweetCellDelegate> delegate;
 @end

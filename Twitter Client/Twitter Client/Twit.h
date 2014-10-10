@@ -19,5 +19,7 @@
 -(void) toggle_favorite;
 -(void) toggle_retweet;
 
+@property (nonatomic, readonly, getter = get_user_handle) NSString* user_handle;
+
 @end
 

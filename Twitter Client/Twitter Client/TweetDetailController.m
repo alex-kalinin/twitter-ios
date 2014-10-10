@@ -19,6 +19,7 @@
 @implementation TweetDetailController
 {
     Twit*   _tweet;
+    BOOL    _reply;
 }
 //------------------------------------------------------------------------------
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -76,7 +77,11 @@
     
     if (indexPath.row == 0)      result = [self.tableView dequeueReusableCellWithIdentifier:@"TwitDetailCell"];
     else if (indexPath.row == 1) result = [self.tableView dequeueReusableCellWithIdentifier:@"TweetDetailRetweetsCell"];
-    else if (indexPath.row == 2) result = [self.tableView dequeueReusableCellWithIdentifier:@"DetailButtonsCell"];
+    else if (indexPath.row == 2) {
+        DetailButtonsCell* buttons = [self.tableView dequeueReusableCellWithIdentifier:@"DetailButtonsCell"];
+        buttons.parent = self;
+        result = buttons;
+    }
 
     [_tweet display:(id<TwitView>)result];
     
@@ -88,8 +93,16 @@
     _tweet = twit;
 }
 //------------------------------------------------------------------------------
+-(void)reply
+{
+    _reply = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+//------------------------------------------------------------------------------
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self.delegate tweet_detail_controller_done:self withTweet:_tweet];
+    [self.delegate tweet_detail_controller_done:self
+                                      withTweet:_tweet
+                                      withReply:_reply];
 }
 @end

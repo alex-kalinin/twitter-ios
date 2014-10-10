@@ -12,11 +12,12 @@
 @class TweetDetailController;
 
 @protocol TweetDetailControllerDelegate<NSObject>
--(void) tweet_detail_controller_done:(TweetDetailController*)td withTweet:(Twit*)tweet;
+-(void) tweet_detail_controller_done:(TweetDetailController*)td withTweet:(Twit*)tweet withReply:(BOOL)reply;
 @end
 
 
 @interface TweetDetailController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic) id<TweetDetailControllerDelegate> delegate;
 -(void) set_tweet:(Twit*)twit;
+-(void) reply;
 @end

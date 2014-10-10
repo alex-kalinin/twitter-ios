@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TwitView.h"
+#import "NewTwitController.h"
+#import "TweetDetailController.h"
 
 @interface DetailButtonsCell : UITableViewCell<TwitView>
-
+@property (nonatomic, strong) TweetDetailController* parent;
 @end

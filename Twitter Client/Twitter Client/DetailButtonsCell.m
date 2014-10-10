@@ -9,6 +9,7 @@
 #import "DetailButtonsCell.h"
 #import "ButtonBarController.h"
 #import "Util.h"
+#import "NewTwitController.h"
 
 @interface DetailButtonsCell()
 @property (strong, nonatomic) IBOutlet UIButton *reply_button;
@@ -22,6 +23,8 @@
 @implementation DetailButtonsCell
 {
     ButtonBarController*    _button_bar;
+    Twit*                   _tweet;
+    NSString*               _author_handle;
 }
 
 - (void)awakeFromNib
@@ -62,10 +65,13 @@
     [self.retweet_button setImage:[UIImage imageNamed:(twit_data.retweeted ? @"RetweetSelected" : @"Retwit")]
                          forState:UIControlStateNormal];
     self.retweet_count.textColor = twit_data.retweeted ? green : gray;
+    
+    _tweet = twit;
+    _author_handle = author_handle;
 }
 
 - (IBAction)reply_click:(id)sender {
-    [_button_bar reply_button_click:sender];
+    [self.parent reply];
 }
 
 

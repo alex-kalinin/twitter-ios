@@ -123,4 +123,9 @@ static NSDateFormatter* _formatter;
         }];
     }
 }
+-(NSString *)get_user_handle
+{
+    return [NSString stringWithFormat:@"@%@", _user_handle];
+}
+
 @end

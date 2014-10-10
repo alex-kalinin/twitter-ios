@@ -18,5 +18,7 @@
 
 @interface NewTwitController : UIViewController<UITextViewDelegate>
 @property (nonatomic) id<NewTwitControllerDelegate> delegate;
+
 -(void)set_user:(User*)author;
+-(void)set_user:(User*)author withText:(NSString*)text;
 @end

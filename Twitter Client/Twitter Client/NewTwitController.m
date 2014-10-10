@@ -24,6 +24,7 @@
     User* _author;
     UILabel* _remain_count;
     UIBarButtonItem*    _remain_button;
+    NSString*   _default_text;
 }
 //------------------------------------------------------------------------------
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -70,18 +71,27 @@
     self.user_name.text = _author.name;
     self.user_handle.text = [NSString stringWithFormat:@"@%@", _author.user_handle];
     [self.profile_image setImageWithURL:[NSURL URLWithString:_author.thumbnail_url]];
-    self.twit_text.text = @"";
     
     [self.twit_text becomeFirstResponder];
+
+    if (_default_text.length <= 0) {
+        self.twit_text.placeholder = @"What's happening?";
+        self.twit_text.placeholderColor = [UIColor lightGrayColor];
+        self.twit_text.delegate = self;
+    }
     
-    self.twit_text.placeholder = @"What's happening?";
-    self.twit_text.placeholderColor = [UIColor lightGrayColor];
-    self.twit_text.delegate = self;
+    self.twit_text.text = _default_text;
 }
 //------------------------------------------------------------------------------
 -(void)set_user:(User *)author
 {
     _author = author;
+}
+//------------------------------------------------------------------------------
+-(void)set_user:(User *)author withText:(NSString *)text
+{
+    [self set_user:author];
+    _default_text = text;
 }
 //------------------------------------------------------------------------------
 -(void) cancel_click
@@ -103,7 +113,7 @@
 //------------------------------------------------------------------------------
 -(void)textViewDidChange:(UITextView *)textView
 {
-    _remain_count.text = [NSString stringWithFormat:@"%li  ", 140 - textView.text.length];
+    _remain_count.text = [NSString stringWithFormat:@"%i  ", (int) (140 - textView.text.length)];
 }
 
 @end

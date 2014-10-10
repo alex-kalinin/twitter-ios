@@ -90,4 +90,10 @@
     [_button_bar retweet_button_click:sender];
 }
 
+- (IBAction)reply_click:(id)sender
+{
+    [self.delegate reply_click:_twit];
+}
+
+
 @end
