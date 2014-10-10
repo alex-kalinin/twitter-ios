@@ -15,19 +15,16 @@
 @end
 
 @implementation TweetDetailRetweetsCell
-
+//------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
-    // Initialization code
 }
-
+//------------------------------------------------------------------------------
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
-
+//------------------------------------------------------------------------------
 -(void)display_twit_with_author:(NSString *)author_handle
                        withName:(NSString *)name
                        withText:(NSString *)text

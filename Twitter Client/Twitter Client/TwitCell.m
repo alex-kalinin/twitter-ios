@@ -26,25 +26,25 @@
 @property (strong, nonatomic) IBOutlet UILabel *star_count;
 
 @end
-
+//------------------------------------------------------------------------------
 @implementation TwitCell
 {
     Twit*   _twit;
     ButtonBarController*    _button_bar;
 }
-
+//------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
     // Initialization code
 }
-
+//------------------------------------------------------------------------------
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
-
+//------------------------------------------------------------------------------
 -(void)display_twit_with_author:(NSString *)author_handle
                        withName:(NSString *)name
                        withText:(NSString *)text
@@ -79,21 +79,20 @@
     
     _button_bar = [[ButtonBarController alloc]init_with_tweet:_twit withTweetView:self];
 }
-
+//------------------------------------------------------------------------------
 - (IBAction)favorite_button_click:(id)sender
 {
     [_button_bar favorite_button_click:sender];
 }
-
+//------------------------------------------------------------------------------
 - (IBAction)retweet_button_click:(id)sender
 {
     [_button_bar retweet_button_click:sender];
 }
-
+//------------------------------------------------------------------------------
 - (IBAction)reply_click:(id)sender
 {
     [self.delegate reply_click:_twit];
 }
-
-
+//------------------------------------------------------------------------------
 @end

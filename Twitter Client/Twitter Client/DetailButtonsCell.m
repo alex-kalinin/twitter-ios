@@ -19,26 +19,23 @@
 @property (strong, nonatomic) IBOutlet UILabel *favorites_count;
 
 @end
-
+//------------------------------------------------------------------------------
 @implementation DetailButtonsCell
 {
     ButtonBarController*    _button_bar;
     Twit*                   _tweet;
     NSString*               _author_handle;
 }
-
+//------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
-    // Initialization code
 }
-
+//------------------------------------------------------------------------------
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
-
+//------------------------------------------------------------------------------
 -(void)display_twit_with_author:(NSString *)author_handle
                        withName:(NSString *)name
                        withText:(NSString *)text
@@ -69,17 +66,15 @@
     _tweet = twit;
     _author_handle = author_handle;
 }
-
+//------------------------------------------------------------------------------
 - (IBAction)reply_click:(id)sender {
     [self.parent reply];
 }
-
-
+//------------------------------------------------------------------------------
 - (IBAction)retweet_click:(id)sender {
     [_button_bar retweet_button_click:sender];
 }
-
-
+//------------------------------------------------------------------------------
 - (IBAction)favorite_click:(id)sender {
     [_button_bar favorite_button_click:sender];
 }
