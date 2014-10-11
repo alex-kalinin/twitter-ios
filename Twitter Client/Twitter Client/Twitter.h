@@ -22,7 +22,10 @@
 -(void) reload:(void (^)())on_done;
 -(void)sign_out;
 
--(void) twit_with_text:(NSString*)text success:(void(^)(Twit*))on_success;
+-(void) twit_with_text:(NSString*)text
+           withReplyID:(NSString*)reply_id
+               success:(void(^)(Twit*))on_success;
+
 -(long) index_for_tweet:(Twit*)tweet;
 
 -(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)tweet_id

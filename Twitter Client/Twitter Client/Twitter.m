@@ -52,9 +52,17 @@ static Twitter* _twitterClient;
      }];
 }
 //------------------------------------------------------------------------------
--(void)twit_with_text:(NSString*)text success:(void(^)(Twit*))on_success
+-(void)twit_with_text:(NSString*)text
+          withReplyID:(NSString*)reply_id
+              success:(void(^)(Twit*))on_success
 {
-    NSDictionary *parameters = @{@"status": text};
+    NSMutableDictionary *parameters = [NSMutableDictionary
+                                       dictionaryWithDictionary:@{@"status": text}];
+    
+    if (reply_id) {
+        parameters[@"in_reply_to_status_id"] = reply_id;
+    }
+    
     [self POST:@"1.1/statuses/update.json"
     parameters:parameters
        success:^(AFHTTPRequestOperation *operation, id responseObject) {

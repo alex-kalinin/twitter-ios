@@ -24,7 +24,8 @@
     User* _author;
     UILabel* _remain_count;
     UIBarButtonItem*    _remain_button;
-    NSString*   _default_text;
+    Twit*   _origin_tweet;
+//    NSString*   _default_text;
 }
 //------------------------------------------------------------------------------
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -74,13 +75,15 @@
     
     [self.twit_text becomeFirstResponder];
 
-    if (_default_text.length <= 0) {
+    if (!_origin_tweet) {
         self.twit_text.placeholder = @"What's happening?";
         self.twit_text.placeholderColor = [UIColor lightGrayColor];
         self.twit_text.delegate = self;
     }
-    
-    self.twit_text.text = _default_text;
+
+    if (_origin_tweet) {
+        self.twit_text.text = [NSString stringWithFormat:@"%@ ", _origin_tweet.user_handle];
+    }
 }
 //------------------------------------------------------------------------------
 -(void)set_user:(User *)author
@@ -88,10 +91,11 @@
     _author = author;
 }
 //------------------------------------------------------------------------------
--(void)set_user:(User *)author withText:(NSString *)text
+-(void)set_user:(User*)author withTweet:(Twit*)tweet;
 {
     [self set_user:author];
-    _default_text = text;
+//    _default_text = [NSString stringWithFormat:@"%@ ", tweet.user_handle];
+    _origin_tweet = tweet;
 }
 //------------------------------------------------------------------------------
 -(void) cancel_click
@@ -101,7 +105,14 @@
 //------------------------------------------------------------------------------
 -(void) send_click
 {
-    [self.delegate new_twit_controller_done:self withText:self.twit_text.text];
+    NSString* reply_id = nil;
+    if (_origin_tweet) {
+        reply_id = _origin_tweet.id;
+    }
+    
+    [self.delegate new_twit_controller_done:self
+                                   withText:self.twit_text.text
+                                   withReplyID:reply_id];
     [self.navigationController popViewControllerAnimated:YES];
 }
 //------------------------------------------------------------------------------

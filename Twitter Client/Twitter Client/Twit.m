@@ -36,6 +36,11 @@ static NSDateFormatter* _formatter;
     long    _retweet_count;
 }
 //------------------------------------------------------------------------------
+-(NSString*) get_id
+{
+    return _id;
+}
+//------------------------------------------------------------------------------
 -(NSDateFormatter*)get_date_formatter
 {
     if (!_formatter) {

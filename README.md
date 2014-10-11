@@ -21,13 +21,13 @@ Time spent: 15h.
 * Optional: Retweeting and favoriting should increment the retweet and favorite count.
 * Optional: User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 * Optional: When composing, you should have a countdown in the upper right for the tweet limit.
+* Optional: Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 
 
 ### REMAIN
 
 ###### Optional 
 
-* Optional: Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 * Optional: User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ### References

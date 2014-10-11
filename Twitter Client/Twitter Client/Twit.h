@@ -20,6 +20,7 @@
 -(void) toggle_retweet;
 
 @property (nonatomic, readonly, getter = get_user_handle) NSString* user_handle;
+@property (nonatomic, readonly, getter = get_id) NSString* id;
 
 @end
 

@@ -8,17 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Twit.h"
 
 @class NewTwitController;
 
 @protocol NewTwitControllerDelegate<NSObject>
 -(void) new_twit_controller_done:(NewTwitController*) twc
-                        withText:(NSString*)text;
+                        withText:(NSString*)text
+                     withReplyID:(NSString*)reply_id;
 @end
 
 @interface NewTwitController : UIViewController<UITextViewDelegate>
 @property (nonatomic) id<NewTwitControllerDelegate> delegate;
 
 -(void)set_user:(User*)author;
--(void)set_user:(User*)author withText:(NSString*)text;
+-(void)set_user:(User*)author withTweet:(Twit*)tweet;
 @end

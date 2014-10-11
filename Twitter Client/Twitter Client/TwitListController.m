@@ -25,7 +25,7 @@
     UIRefreshControl* _refreshControl;
     Twitter*    _twitter;
 }
-
+//------------------------------------------------------------------------------
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,7 +34,7 @@
     }
     return self;
 }
-
+//------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -110,9 +110,11 @@
     [self.navigationController pushViewController:c animated:YES];
 }
 //------------------------------------------------------------------------------
--(void)new_twit_controller_done:(NewTwitController *)twc withText:(NSString *)text
+-(void)new_twit_controller_done:(NewTwitController *)twc
+                       withText:(NSString *)text
+                    withReplyID:(NSString *)reply_id
 {
-    [[Twitter instance] twit_with_text:text success:^(Twit* new_twit) {
+    [[Twitter instance] twit_with_text:text withReplyID:reply_id success:^(Twit* new_twit) {
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     }];
 }
@@ -151,7 +153,7 @@
     if (reply) {
         NewTwitController* c = [NewTwitController new];
         c.delegate = self;
-        [c set_user:User.currentUser withText:tweet.user_handle];
+        [c set_user:User.currentUser withTweet:tweet];
         [self.navigationController pushViewController:c animated:YES];
     }
 }
@@ -160,8 +162,7 @@
 {
     NewTwitController* c = [NewTwitController new];
     c.delegate = self;
-    [c set_user:User.currentUser
-       withText:[NSString stringWithFormat:@"%@ ", tweet.user_handle]];
+    [c set_user:User.currentUser withTweet:tweet];
     [self.navigationController pushViewController:c animated:YES];
 }
 
