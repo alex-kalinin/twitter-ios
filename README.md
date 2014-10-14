@@ -1,10 +1,10 @@
-Complext Twitter Client
+Complex Twitter Client
 ===========
 
-Time spent: 3h.
+Time spent: 3h
 
 ### Implemented User Stories
-###### Require - (minus one)
+###### Required - (minus one)
 * Hamburger menu
  * Dragging anywhere in the view should reveal the menu.
  * The menu should include links to your profile, the home timeline, and the mentions view.
@@ -16,6 +16,7 @@ Time spent: 3h.
 
 ### Project Requirements
 
+* Profile page
  * Contains a section with the users basic stats: # tweets, # following, # followers
  * Optional: Implement the paging view for the user description.
  * Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
