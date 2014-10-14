@@ -22,10 +22,11 @@ static User *_currentuser;
         self.name = (NSString *) dict[@"name"];
         self.thumbnail_url = (NSString *) dict[@"profile_image_url"];
         self.banner_url = (NSString *) dict[@"profile_banner_url"];
-        self.user_handle = (NSString *) dict[@"screen_name"];
+        self.user_handle = [NSString stringWithFormat:@"@%@", (NSString *) dict[@"screen_name"]];
         self.friends = (int) dict[@"friends_count"];
         self.followers = (int) dict[@"followers_count"];
         self.status_count = (int) dict[@"statuses_count"];
+        self.profile_url = dict[@"profile_image_url"];
     }
     return self;
 }

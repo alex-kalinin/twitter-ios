@@ -11,6 +11,13 @@
 #import "TweetDetailController.h"
 #import "TwitCell.h"
 
-@interface TwitListController : UIViewController<UITableViewDelegate, UITableViewDataSource, NewTwitControllerDelegate, TweetDetailControllerDelegate, TweetCellDelegate>
+@class TwitListController;
 
+@protocol TwitListControllerDelegate<NSObject>
+-(void) menu_click:(TwitListController*)sender;
+@end
+
+@interface TwitListController : UIViewController<UITableViewDelegate, UITableViewDataSource, NewTwitControllerDelegate, TweetDetailControllerDelegate, TweetCellDelegate>
+@property (nonatomic, weak) id<TwitListControllerDelegate> delegate;
+-(void) reload;
 @end

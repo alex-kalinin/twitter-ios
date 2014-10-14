@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* thumbnail_url;
-//@property (nonatomic, strong) NSString* profile_url;
+@property (nonatomic, strong) NSString* profile_url;
 @property (nonatomic, strong) NSString* banner_url;
 @property (nonatomic, strong) NSString* user_handle;
 

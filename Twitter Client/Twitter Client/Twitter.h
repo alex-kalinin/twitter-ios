@@ -28,6 +28,11 @@
 
 -(long) index_for_tweet:(Twit*)tweet;
 
+-(void)set_mentions_mode:(BOOL)mentions_mode;
+
+@property (nonatomic, readonly, getter = get_mode_display_name) NSString* mode_display_name;
+
+
 -(AFHTTPRequestOperation *) favorite_twit_with_id:(NSString*)tweet_id
     success:(void (^) (AFHTTPRequestOperation *operation, id responseObject))success
     failure:(void (^) (AFHTTPRequestOperation *operation, NSError *error))failure;

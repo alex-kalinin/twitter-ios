@@ -54,6 +54,12 @@
 		A1A16A7219E24A34000E146C /* star-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6819E24A34000E146C /* star-selected@2x.png */; };
 		A1A16A7319E24A34000E146C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6919E24A34000E146C /* star.png */; };
 		A1A16A7419E24A34000E146C /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A16A6A19E24A34000E146C /* star@2x.png */; };
+		A1ADA6EA19EC71890022AD0B /* FlipBurgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA6E819EC71890022AD0B /* FlipBurgerViewController.m */; };
+		A1ADA6EB19EC71890022AD0B /* FlipBurgerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA6E919EC71890022AD0B /* FlipBurgerViewController.xib */; };
+		A1ADA6EF19EC778A0022AD0B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA6ED19EC778A0022AD0B /* MenuViewController.m */; };
+		A1ADA6F019EC778A0022AD0B /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA6EE19EC778A0022AD0B /* MenuViewController.xib */; };
+		A1ADA6F419ECA90D0022AD0B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA6F219ECA90D0022AD0B /* ProfileViewController.m */; };
+		A1ADA6F519ECA90D0022AD0B /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA6F319ECA90D0022AD0B /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +139,15 @@
 		A1A16A6819E24A34000E146C /* star-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-selected@2x.png"; sourceTree = "<group>"; };
 		A1A16A6919E24A34000E146C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		A1A16A6A19E24A34000E146C /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		A1ADA6E719EC71890022AD0B /* FlipBurgerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipBurgerViewController.h; sourceTree = "<group>"; };
+		A1ADA6E819EC71890022AD0B /* FlipBurgerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipBurgerViewController.m; sourceTree = "<group>"; };
+		A1ADA6E919EC71890022AD0B /* FlipBurgerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlipBurgerViewController.xib; sourceTree = "<group>"; };
+		A1ADA6EC19EC778A0022AD0B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		A1ADA6ED19EC778A0022AD0B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		A1ADA6EE19EC778A0022AD0B /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		A1ADA6F119ECA90D0022AD0B /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A1ADA6F219ECA90D0022AD0B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A1ADA6F319ECA90D0022AD0B /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		DCFA76381BDB4552B7DD725D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E2DE16CB6AF245B282941DF0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -255,6 +270,15 @@
 				A15F69D719E58ED700993B63 /* TweetDetailController.h */,
 				A15F69D819E58ED700993B63 /* TweetDetailController.m */,
 				A15F69D919E58ED700993B63 /* TweetDetailController.xib */,
+				A1ADA6E719EC71890022AD0B /* FlipBurgerViewController.h */,
+				A1ADA6E819EC71890022AD0B /* FlipBurgerViewController.m */,
+				A1ADA6E919EC71890022AD0B /* FlipBurgerViewController.xib */,
+				A1ADA6EC19EC778A0022AD0B /* MenuViewController.h */,
+				A1ADA6ED19EC778A0022AD0B /* MenuViewController.m */,
+				A1ADA6EE19EC778A0022AD0B /* MenuViewController.xib */,
+				A1ADA6F119ECA90D0022AD0B /* ProfileViewController.h */,
+				A1ADA6F219ECA90D0022AD0B /* ProfileViewController.m */,
+				A1ADA6F319ECA90D0022AD0B /* ProfileViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -400,11 +424,14 @@
 				A15F69E519E5CCF200993B63 /* DetailButtonsCell.xib in Resources */,
 				A1A16A6E19E24A34000E146C /* retweet-selected@2x.png in Resources */,
 				A193AA0819E36FAC00378964 /* LoginViewController.xib in Resources */,
+				A1ADA6F019EC778A0022AD0B /* MenuViewController.xib in Resources */,
 				A1A16A6B19E24A34000E146C /* reply.png in Resources */,
 				A1721E4919E1D9BD00254A89 /* TwitCell.xib in Resources */,
 				A15F69DB19E58ED700993B63 /* TweetDetailController.xib in Resources */,
 				A15F69E019E5C8D000993B63 /* TweetDetailRetweetsCell.xib in Resources */,
+				A1ADA6EB19EC71890022AD0B /* FlipBurgerViewController.xib in Resources */,
 				A15F69CC19E5885B00993B63 /* TwitDetailCell.xib in Resources */,
+				A1ADA6F519ECA90D0022AD0B /* ProfileViewController.xib in Resources */,
 				A1A16A7119E24A34000E146C /* star-selected.png in Resources */,
 				A1721E1F19E1B46C00254A89 /* Images.xcassets in Resources */,
 				A1721E4019E1B49C00254A89 /* TwitListController.xib in Resources */,
@@ -468,7 +495,9 @@
 				A193AA0319E36C4300378964 /* MyLabel.m in Sources */,
 				A15F69CB19E5885B00993B63 /* TwitDetailCell.m in Sources */,
 				A1721E5319E1DA1200254A89 /* TwitView.m in Sources */,
+				A1ADA6F419ECA90D0022AD0B /* ProfileViewController.m in Sources */,
 				A1721E3F19E1B49C00254A89 /* TwitListController.m in Sources */,
+				A1ADA6EA19EC71890022AD0B /* FlipBurgerViewController.m in Sources */,
 				A1721E1D19E1B46C00254A89 /* AppDelegate.m in Sources */,
 				A15F69DF19E5C8D000993B63 /* TweetDetailRetweetsCell.m in Sources */,
 				A15F69EB19E603D300993B63 /* UIPlaceHolderTextView.m in Sources */,
@@ -482,6 +511,7 @@
 				A1721E4319E1B62300254A89 /* Util.m in Sources */,
 				A193AA0719E36FAC00378964 /* LoginViewController.m in Sources */,
 				A1721E4D19E1D9F300254A89 /* Twit.m in Sources */,
+				A1ADA6EF19EC778A0022AD0B /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

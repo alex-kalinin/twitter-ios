@@ -11,6 +11,7 @@
 #import "Util.h"
 #import "LoginViewController.h"
 #import "Twitter.h"
+#import "FlipBurgerViewController.h"
 
 @implementation AppDelegate
 //------------------------------------------------------------------------------
@@ -33,17 +34,19 @@
 //------------------------------------------------------------------------------
 -(void) init_main_window
 {
-    UIViewController* controller;
+//    UIViewController* controller;
+//    
+//    if ([Twitter instance].is_logged_in) {
+//        UIViewController* c = [[TwitListController alloc]initWithNibName:@"TwitListController" bundle:nil];
+//        controller = [[UINavigationController alloc]initWithRootViewController:c];
+//    }
+//    else {
+//        controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+//    }
+
+    FlipBurgerViewController* c = [FlipBurgerViewController new];
     
-    if ([Twitter instance].is_logged_in) {
-        UIViewController* c = [[TwitListController alloc]initWithNibName:@"TwitListController" bundle:nil];
-        controller = [[UINavigationController alloc]initWithRootViewController:c];
-    }
-    else {
-        controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
-    }
-    
-    self.window.rootViewController = controller;
+    self.window.rootViewController = c;
 }
 //------------------------------------------------------------------------------
 - (void)applicationWillResignActive:(UIApplication *)application

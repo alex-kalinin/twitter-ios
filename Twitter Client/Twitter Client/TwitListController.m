@@ -39,19 +39,23 @@
 {
     [super viewDidLoad];
     
+    _twitter = [Twitter instance];
+
     _refreshControl = [UIRefreshControl new];
     [_refreshControl addTarget:self action:@selector(refresh_on_pull) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_refreshControl];
     
-    [[Twitter instance] load:^{
+    [_twitter load:^{
         [_refreshControl endRefreshing];
         [self.tableView reloadData];
     }];
 
-    self.title = @"Home";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Sign Out"
-                                                                            style:UIBarButtonItemStylePlain target:self
-                                                                           action:@selector(sign_out_click)];
+    self.title = _twitter.mode_display_name;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Menu"]
+                                                                            style:UIBarButtonItemStylePlain
+                                                                           target:self
+                                                                           action:@selector(menu_click)];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"New"
                                                                             style:UIBarButtonItemStylePlain target:self
                                                                            action:@selector(new_twit)];
@@ -63,15 +67,19 @@
     self.tableView.dataSource = self;
     
     _size_cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
-    
-    _twitter = [Twitter instance];
 }
 //------------------------------------------------------------------------------
 -(void) reload {
-    [[Twitter instance] reload:^{
+    [_twitter reload:^{
+        self.title = _twitter.mode_display_name;
         [_refreshControl endRefreshing];
         [self.tableView reloadData];
     }];
+}
+//------------------------------------------------------------------------------
+-(void)menu_click
+{
+    [self.delegate menu_click:self];
 }
 //------------------------------------------------------------------------------
 -(void)refresh_on_pull
@@ -81,13 +89,13 @@
 //------------------------------------------------------------------------------
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [Twitter instance].twit_count;
+    return _twitter.twit_count;
 }
 //------------------------------------------------------------------------------
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TwitCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"TwitCell"];
-    Twit* twit = [[Twitter instance] twit_at_index:indexPath.row];
+    Twit* twit = [_twitter twit_at_index:indexPath.row];
     [twit display:cell];
     cell.delegate = self;
     return cell;
@@ -95,7 +103,7 @@
 //------------------------------------------------------------------------------
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Twit* twit = [[Twitter instance] twit_at_index:indexPath.row];
+    Twit* twit = [_twitter twit_at_index:indexPath.row];
     _size_cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), 0.0f);
     [twit display:_size_cell];
     CGSize size = [_size_cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];

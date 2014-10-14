@@ -20,6 +20,7 @@ static Twitter* _twitterClient;
 {
     NSMutableArray*    _twits;
     User*              _user;
+    BOOL               _mentions_mode;
 }
 //------------------------------------------------------------------------------
 +(Twitter *)instance
@@ -30,6 +31,11 @@ static Twitter* _twitterClient;
                                                  consumerSecret:API_SECRET];
     }
     return _twitterClient;
+}
+//------------------------------------------------------------------------------
+-(void)set_mentions_mode:(BOOL)mentions_mode
+{
+    _mentions_mode = mentions_mode;
 }
 //------------------------------------------------------------------------------
 -(void)login
@@ -90,6 +96,7 @@ static Twitter* _twitterClient;
                                  [self.requestSerializer saveAccessToken:accessToken];
                                  
                                  [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                                     NSLog(@"%@", responseObject);
                                      User* user = [[User alloc]initWithDict:responseObject];
                                      User.currentUser = user;
                                      on_done();
@@ -122,6 +129,10 @@ static Twitter* _twitterClient;
 {
     return _twits[index];
 }
+-(NSString *)get_mode_display_name
+{
+    return _mentions_mode ? @"Mentions" : @"Timeline";
+}
 //------------------------------------------------------------------------------
 -(BOOL)is_logged_in
 {
@@ -135,8 +146,9 @@ static Twitter* _twitterClient;
 //------------------------------------------------------------------------------
 -(void) reload:(void (^)())on_done
 {
-    [self GET:@"1.1/statuses/home_timeline.json"
-   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString* url = _mentions_mode ? @"1.1/statuses/mentions_timeline.json" : @"1.1/statuses/home_timeline.json";
+    
+    [self GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
        
        _twits = [self load_twits_from_json:responseObject];
        on_done();
