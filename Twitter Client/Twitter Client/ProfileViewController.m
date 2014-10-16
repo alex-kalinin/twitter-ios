@@ -44,8 +44,11 @@
                                                                            action:@selector(cancel_click)];
     self.navigationItem.rightBarButtonItem = nil;
 
-    
-    User* user = _user;
+    [self init_view:_user];
+}
+
+-(void) init_view:(User*)user
+{
     [self.profile_image setImageWithURL:[NSURL URLWithString:user.profile_url]];
     self.user_handle.text = user.user_handle;
     self.user_name.text = user.name;
@@ -68,6 +71,7 @@
 -(void)set_user:(User *)user
 {
     _user = user;
+    [self init_view:user];
 }
 
 @end

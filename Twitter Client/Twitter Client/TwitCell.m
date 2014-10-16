@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *retweet_count;
 @property (strong, nonatomic) IBOutlet UILabel *star_count;
 
+@property (strong, nonatomic) IBOutlet UIButton *profile_button;
+
 @end
 //------------------------------------------------------------------------------
 @implementation TwitCell
@@ -45,6 +47,11 @@
     // Configure the view for the selected state
 }
 //------------------------------------------------------------------------------
+- (IBAction)profile_image_tap:(id)sender
+{
+    [self.delegate profile_click:self withTweet:_twit];
+}
+//------------------------------------------------------------------------------
 -(void)display_twit_with_author:(NSString *)author_handle
                        withName:(NSString *)name
                        withText:(NSString *)text
@@ -63,6 +70,8 @@
     self.dateStr.text = date_text;
     self.text.text = text;
     [self.twitImage setImageWithURL:[NSURL URLWithString:imageUrl]];
+    
+    [self.profile_button.imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
     
     self.star_count.text = [NSString stringWithFormat:@"%li", twit_data.favorites_count];
     self.retweet_count.text = [NSString stringWithFormat:@"%li", twit_data.retweet_count];
@@ -95,4 +104,6 @@
     [self.delegate reply_click:_twit];
 }
 //------------------------------------------------------------------------------
+
+
 @end

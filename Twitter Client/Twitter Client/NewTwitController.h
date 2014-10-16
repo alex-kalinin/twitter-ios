@@ -16,6 +16,8 @@
 -(void) new_twit_controller_done:(NewTwitController*) twc
                         withText:(NSString*)text
                      withReplyID:(NSString*)reply_id;
+
+-(void) new_twit_controller_profile_image_click:(NewTwitController*) twc;
 @end
 
 @interface NewTwitController : UIViewController<UITextViewDelegate>

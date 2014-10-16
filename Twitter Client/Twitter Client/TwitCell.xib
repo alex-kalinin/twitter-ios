@@ -16,6 +16,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hot-3T-3Cm">
                         <rect key="frame" x="10" y="10" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="KmG-bx-Hkx"/>
                             <constraint firstAttribute="height" constant="40" id="R42-li-zQl"/>
@@ -24,6 +25,7 @@
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkk-OR-lb5">
                         <rect key="frame" x="63" y="4" width="66" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -31,6 +33,7 @@
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Twit text goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="258" translatesAutoresizingMaskIntoConstraints="NO" id="8L8-cb-B1E">
                         <rect key="frame" x="63" y="24" width="258" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -105,15 +108,32 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0I-gO-BzD">
+                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="5YU-dl-ilb"/>
+                            <constraint firstAttribute="width" constant="40" id="h0b-XV-dwr"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="profile_image_tap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YRo-NC-6mc"/>
+                        </connections>
+                    </button>
                 </subviews>
+                <gestureRecognizers/>
                 <constraints>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eWF-RQ-1fG" secondAttribute="bottom" constant="7" id="6hb-uG-m82"/>
                     <constraint firstItem="nOJ-uL-BBU" firstAttribute="leading" secondItem="eWF-RQ-1fG" secondAttribute="trailing" constant="32" id="7v5-0L-t4O"/>
                     <constraint firstItem="s3Z-91-2Xa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="88d-V7-c5g"/>
                     <constraint firstItem="Jkk-OR-lb5" firstAttribute="leading" secondItem="Hot-3T-3Cm" secondAttribute="trailing" constant="13" id="8nz-4a-rBG"/>
                     <constraint firstItem="eWF-RQ-1fG" firstAttribute="top" secondItem="8L8-cb-B1E" secondAttribute="bottom" constant="13" id="F0w-5G-gqd"/>
+                    <constraint firstItem="M0I-gO-BzD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Gqh-TD-yI7"/>
                     <constraint firstItem="Fn8-kr-uEn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="IRx-zd-UxK"/>
                     <constraint firstItem="8L8-cb-B1E" firstAttribute="leading" secondItem="Hot-3T-3Cm" secondAttribute="trailing" constant="13" id="K2E-fs-ujb"/>
+                    <constraint firstItem="M0I-gO-BzD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="PmJ-if-A1A"/>
                     <constraint firstItem="6Na-Vt-WvS" firstAttribute="top" secondItem="8L8-cb-B1E" secondAttribute="bottom" constant="17" id="Spg-RU-QQT"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Hot-3T-3Cm" secondAttribute="bottom" priority="999" constant="7" id="XEj-qi-NTF"/>
                     <constraint firstItem="Hot-3T-3Cm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="XTN-Ip-NWI"/>
@@ -135,11 +155,13 @@
                     <constraint firstAttribute="trailing" secondItem="8L8-cb-B1E" secondAttribute="trailing" constant="4" id="yrK-6K-QD3"/>
                 </constraints>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <connections>
                 <outlet property="dateStr" destination="Fn8-kr-uEn" id="1Mh-k6-GOC"/>
                 <outlet property="favorite_button" destination="HxJ-AJ-6v4" id="K5f-KC-imH"/>
                 <outlet property="handle" destination="s3Z-91-2Xa" id="G44-Hz-dxG"/>
                 <outlet property="name" destination="Jkk-OR-lb5" id="DnT-dd-SVr"/>
+                <outlet property="profile_button" destination="M0I-gO-BzD" id="Ceb-GL-kch"/>
                 <outlet property="reply_button" destination="eWF-RQ-1fG" id="zPg-Nj-qSx"/>
                 <outlet property="retweet_button" destination="nOJ-uL-BBU" id="sbP-9E-h8w"/>
                 <outlet property="retweet_count" destination="6Na-Vt-WvS" id="TWv-pG-fnH"/>

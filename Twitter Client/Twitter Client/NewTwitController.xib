@@ -19,12 +19,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52C-aV-xN5">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52C-aV-xN5">
                     <rect key="frame" x="10" y="70" width="50" height="50"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="692-K3-go4"/>
                         <constraint firstAttribute="height" constant="50" id="jQe-O7-8f8"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="8io-gw-OcI" appends="YES" id="dhM-D3-WhM"/>
+                    </connections>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuck Norris" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swF-ty-ibB">
                     <rect key="frame" x="70" y="70" width="95" height="20"/>
@@ -61,5 +65,10 @@
                 <constraint firstItem="swF-ty-ibB" firstAttribute="leading" secondItem="52C-aV-xN5" secondAttribute="trailing" constant="10" id="geA-Hl-4Bm"/>
             </constraints>
         </view>
+        <tapGestureRecognizer id="8io-gw-OcI">
+            <connections>
+                <action selector="profile_image_tap:" destination="-1" id="ST3-Ow-GXa"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

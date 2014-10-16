@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BDBOAuth1RequestOperationManager.h"
 #import "Twit.h"
+#import "User.h"
 
 @interface Twitter : BDBOAuth1RequestOperationManager
 +(Twitter*) instance;
@@ -29,6 +30,7 @@
 -(long) index_for_tweet:(Twit*)tweet;
 
 -(void)set_mentions_mode:(BOOL)mentions_mode;
+-(void) load_user:(NSString*)screen_name success:(void(^)(User*))on_success;
 
 @property (nonatomic, readonly, getter = get_mode_display_name) NSString* mode_display_name;
 

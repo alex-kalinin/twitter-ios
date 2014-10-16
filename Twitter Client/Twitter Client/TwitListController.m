@@ -127,6 +127,12 @@
     }];
 }
 //------------------------------------------------------------------------------
+-(void)new_twit_controller_profile_image_click:(NewTwitController *)twc
+{
+//    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate profile_click:self withTweet:nil];
+}
+//------------------------------------------------------------------------------
 -(void) sign_out_click
 {
     [[Twitter instance] sign_out];
@@ -173,5 +179,9 @@
     [c set_user:User.currentUser withTweet:tweet];
     [self.navigationController pushViewController:c animated:YES];
 }
-
+//------------------------------------------------------------------------------
+-(void)profile_click:(TwitCell *)sender withTweet:(Twit *)tweet
+{
+    [self.delegate profile_click:self withTweet:tweet];
+}
 @end

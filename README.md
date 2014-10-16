@@ -11,11 +11,11 @@ Time spent: 3h
  * The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
 * Profile page
  * Contains the user header view
+* Home Timeline
+ * Tapping on a user image should bring up that user's profile page
 
 
 ### Project Requirements
-* Home Timeline
- * Tapping on a user image should bring up that user's profile page
 * Profile page
  * Contains a section with the users basic stats: # tweets, # following, # followers
  * Optional: Implement the paging view for the user description.

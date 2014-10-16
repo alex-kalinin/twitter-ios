@@ -86,6 +86,11 @@
     }
 }
 //------------------------------------------------------------------------------
+- (IBAction)profile_image_tap:(id)sender
+{
+    [self.delegate new_twit_controller_profile_image_click:self];
+}
+//------------------------------------------------------------------------------
 -(void)set_user:(User *)author
 {
     _author = author;
@@ -94,7 +99,6 @@
 -(void)set_user:(User*)author withTweet:(Twit*)tweet;
 {
     [self set_user:author];
-//    _default_text = [NSString stringWithFormat:@"%@ ", tweet.user_handle];
     _origin_tweet = tweet;
 }
 //------------------------------------------------------------------------------

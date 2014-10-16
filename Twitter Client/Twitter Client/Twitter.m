@@ -37,6 +37,21 @@ static Twitter* _twitterClient;
 {
     _mentions_mode = mentions_mode;
 }
+
+-(void) load_user:(NSString*)screen_name success:(void(^)(User* user))on_success
+{
+    NSDictionary* params = @{@"screen_name" : screen_name };
+    [self GET:@"1.1/users/show.json"
+   parameters:params
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+          User* user = [[User alloc]initWithDict:responseObject];
+          on_success(user);
+          
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
 //------------------------------------------------------------------------------
 -(void)login
 {

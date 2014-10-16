@@ -15,6 +15,7 @@
 
 @protocol TwitListControllerDelegate<NSObject>
 -(void) menu_click:(TwitListController*)sender;
+-(void) profile_click:(TwitListController*)sender withTweet:tweet;
 @end
 
 @interface TwitListController : UIViewController<UITableViewDelegate, UITableViewDataSource, NewTwitControllerDelegate, TweetDetailControllerDelegate, TweetCellDelegate>

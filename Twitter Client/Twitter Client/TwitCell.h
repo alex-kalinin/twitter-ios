@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TwitView.h"
 
+@class TwitCell;
+
 @protocol TweetCellDelegate <NSObject>
 
 -(void)reply_click:(Twit*)tweet;
+-(void)profile_click:(TwitCell*)sender withTweet:(Twit*)tweet;
 
 @end
 
