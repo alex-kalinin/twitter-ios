@@ -1,7 +1,9 @@
 Complex Twitter Client
 ===========
 
-Time spent: 3h
+Time spent: 6h
+
+![Video Walkthrough](twitter-2.gif)
 
 ### Implemented User Stories
 ###### Required - (minus one)
